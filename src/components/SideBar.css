@@ -1,0 +1,7 @@
+.sidebar{
+background-color: aqua;
+display: flex;
+justify-content: flex-start;
+width: 20%;
+
+}

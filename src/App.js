@@ -10,7 +10,6 @@ function App() {
     <div className="App">
      {/* NAVBAR */}
      <Navbar/>
-
      {/* SEARCH */}
      <Search/>
      {/* SIDEBAR */}

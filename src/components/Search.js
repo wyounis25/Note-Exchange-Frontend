@@ -4,7 +4,7 @@ import "./Search.css"
 function Search() {
     return (
         <div className="search">
-            <h2>Search</h2>
+            <input className="serach__input"></input>
         </div>
     )
 }
