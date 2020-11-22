@@ -20,20 +20,18 @@ function SideBar({ createNote }) {
 	// console.log(label)
 	// console.log(content)
 
-	const handleSubmit = () => {
-		fetch('http://localhost:8000/notes', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json'
-			},
-			body: JSON.stringify({
-				category: category,
-				label: label,
-				content: content
-			})
-		});
-	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('THOUGH');
+		axios.post('http://localhost:8000/notes', {
+			category: category,
+			label: label,
+            content: content,
+            user: "5fb834ba4c227f6e872e507d"
+
+        })
+        
+	}
 
 	return (
 		<div className="sidebar">
@@ -43,6 +41,7 @@ function SideBar({ createNote }) {
 				<input
 					placeholder="Category"
 					name="category"
+					value={category}
 					onChange={(e) => {
 						setCategory(e.target.value);
 					}}
@@ -50,6 +49,7 @@ function SideBar({ createNote }) {
 				<input
 					placeholder="Label"
 					name="label"
+					value={label}
 					onChange={(e) => {
 						setLabel(e.target.value);
 					}}
@@ -57,6 +57,7 @@ function SideBar({ createNote }) {
 				<input
 					placeholder="Content"
 					name="content"
+					value={content}
 					onChange={(e) => {
 						setConent(e.target.value);
 					}}
