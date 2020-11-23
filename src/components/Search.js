@@ -1,10 +1,10 @@
 import React from 'react'
 import "./Search.css"
 
-function Search() {
+function Search({handleSearch}) {
     return (
         <div className="search">
-            <input className="serach__input"></input>
+            <input onChange={handleSearch} className="serach__input"></input>
         </div>
     )
 }

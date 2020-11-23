@@ -11,7 +11,8 @@ import axios from 'axios';
 
 function App() {
 	const [ notes, setnotes ] = useState([]);
-	const [token, setToken] = useState('')
+	const [ token, setToken ] = useState('');
+	const [ search, setSearch ] = useState('');
 
 	useEffect(() => {
 		async function fetchData() {
@@ -23,8 +24,13 @@ function App() {
 		console.log(notes);
 	}, []);
 
+	const handleSearch = (e) => {
+		e.preventDefault();
+		console.log(e.target.value);
+		setSearch(e.target.value);
+	};
 	const loginSession = (currentUser) => {
-		fetch('http://localhost:8000/users/login',{
+		fetch('http://localhost:8000/users/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -34,25 +40,31 @@ function App() {
 				username: currentUser.username,
 				password: currentUser.password
 			})
-		}).then(res => res.json()).then(data => {console.log(data)
-			localStorage.token = data.token
-			setToken(localStorage.token)
 		})
-	}
-	console.log(token)
-	
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				localStorage.token = data.token;
+				setToken(localStorage.token);
+			});
+	};
+	const filterSearch = notes.filter((note) => {
+		return note.label.toLowerCase().includes(search.toLowerCase());
+	});
+	console.log(token);
+
 	return (
 		<Router>
 			<div className="App">
 				<Navbar />
 				<Switch>
 					<Route path="/home">
-						<Search />
-						<SideBar />
-						<Container notes={notes} />
+						<Search handleSearch={handleSearch} />
+						<SideBar userToken={token} />
+						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/">
-						<Portal loginSession={loginSession}/>
+						<Portal loginSession={loginSession} />
 					</Route>
 				</Switch>
 				<Footer />

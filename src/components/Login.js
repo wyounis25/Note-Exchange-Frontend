@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './Login.css'
 import { Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 function Login({loginSession}) {
+    const history = useHistory()
 const [userSession, setuserSession] = useState({
     username: "",
     password: ""
@@ -18,10 +20,19 @@ const [userSession, setuserSession] = useState({
         console.log(userSession)
     }
     const handleSubmit = (e) => {
-        console.log("we here")
-        e.preventDefault()
-        loginSession(userSession)
+        const createToken = ()=> {
+            console.log("we here")
+            e.preventDefault()
+            loginSession(userSession)
+        }
+        const switchToHome = () => {
+            let path = '/home'
+            history.push(path)
+        }
+        createToken()
+        switchToHome()
     }
+
     return (
         <div className="login">
 			<form onSubmit={handleSubmit}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './NoteCard.css';
 function NoteCard({ note }) {
-	console.log(note);
+	// console.log(note);
 	return (
 		
 			<div className="note">
