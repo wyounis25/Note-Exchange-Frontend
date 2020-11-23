@@ -5,7 +5,6 @@ function Container({notes}) {
      console.log(notes)
     return (
         <div className="container">
-            <h4>Container</h4>
             {notes = notes.map(note => {
                 return <NoteCard note = {note}/>
             })}

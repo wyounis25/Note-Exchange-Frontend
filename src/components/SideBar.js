@@ -27,7 +27,7 @@ function SideBar({ createNote }) {
 			category: category,
 			label: label,
             content: content,
-            user: "5fb834ba4c227f6e872e507d"
+            user: "5fba834d343d730cb556277e"
 
         })
         
