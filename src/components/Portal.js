@@ -6,11 +6,11 @@ import SignIn from './SignIn';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 
-function Portal({loginSession}) {
+function Portal({loginSession, getUser}) {
 	return (
 		<div className="portal">
 		<Login loginSession={loginSession}/>
-		<SignIn/>
+		<SignIn getUser={getUser}/>
 	</div>
 	);
 }

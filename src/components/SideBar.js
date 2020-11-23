@@ -8,7 +8,7 @@ function SideBar({ userToken }) {
 	const [ label, setLabel ] = useState('');
 	const [ content, setConent ] = useState('');
 
-	const inputNotes = {};
+	
 	console.log(category);
 	console.log(label);
 	console.log(content);

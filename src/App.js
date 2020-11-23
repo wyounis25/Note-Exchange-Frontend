@@ -13,6 +13,7 @@ function App() {
 	const [ notes, setnotes ] = useState([]);
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
+	const [ current, setCurrentuser ] = useState({});
 
 	useEffect(() => {
 		async function fetchData() {
@@ -22,7 +23,12 @@ function App() {
 		}
 		fetchData();
 		console.log(notes);
-	}, []);
+	}, [])
+
+	const getUser = (currentUser) => {
+		setCurrentuser(currentUser);
+	};
+	console.log(current);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
@@ -64,7 +70,7 @@ function App() {
 						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/">
-						<Portal loginSession={loginSession} />
+						<Portal getUser={getUser} loginSession={loginSession} />
 					</Route>
 				</Switch>
 				<Footer />
