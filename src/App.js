@@ -13,8 +13,6 @@ function App() {
 	const [ notes, setnotes ] = useState([]);
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
-	const [ current, setCurrentuser ] = useState({});
-
 	useEffect(() => {
 		async function fetchData() {
 			const request = await axios.get('http://localhost:8000/notes');
@@ -22,14 +20,15 @@ function App() {
 			setnotes(request.data);
 		}
 		fetchData();
-		console.log(notes);
-	}, [])
+		//console.log(notes);
+	}, []);
 
-	const getUser = (currentUser) => {
-		setCurrentuser(currentUser);
+
+	const getUser = (newSession) => {
+		console.log('we it this');
+		setToken(newSession)
 	};
-	console.log(current);
-
+	
 	const handleSearch = (e) => {
 		e.preventDefault();
 		console.log(e.target.value);
@@ -51,6 +50,28 @@ function App() {
 			.then((data) => {
 				console.log(data);
 				localStorage.token = data.token;
+				console.log(localStorage.token)
+				setToken(localStorage.token);
+			});
+	};
+	const signUpSession = (currentUser) => {
+		fetch('http://localhost:8000/users', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json'
+			},
+			body: JSON.stringify({
+				name: currentUser.name,
+				username: currentUser.username,
+				password: currentUser.password
+			})
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				localStorage.token = data.token;
+				console.log(localStorage.token);
 				setToken(localStorage.token);
 			});
 	};
@@ -62,7 +83,7 @@ function App() {
 	return (
 		<Router>
 			<div className="App">
-				<Navbar />
+				<Navbar/>
 				<Switch>
 					<Route path="/home">
 						<Search handleSearch={handleSearch} />
@@ -70,7 +91,7 @@ function App() {
 						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/">
-						<Portal getUser={getUser} loginSession={loginSession} />
+						<Portal signUpSession={signUpSession} loginSession={loginSession} />
 					</Route>
 				</Switch>
 				<Footer />

@@ -10,7 +10,7 @@ const [userSession, setuserSession] = useState({
     password: ""
 })
 
-    console.log(userSession)
+    // console.log(userSession)
 
     const handleChange = (e) => {
         e.preventDefault()
