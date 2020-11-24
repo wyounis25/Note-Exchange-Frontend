@@ -30,7 +30,7 @@ const [userSession, setuserSession] = useState({
             history.push(path)
         }
         createToken()
-        switchToHome()
+        // switchToHome()
     }
 
     return (

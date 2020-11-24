@@ -8,24 +8,22 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Portal from './components/Portal';
 import axios from 'axios';
+import Profile from './components/Profile';
 
 function App() {
 	const [ notes, setnotes ] = useState([]);
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
-	useEffect(
-		() => {
-			async function fetchData() {
-				const request = await axios.get('http://localhost:8000/notes');
-				///console.log(request.data)
-				setnotes(request.data);
-			}
+	useEffect(() => {
+		async function fetchData() {
+			const request = await axios.get('http://localhost:8000/notes');
+			///console.log(request.data)
+			setnotes(request.data);
+		}
 
-			fetchData();
-			//console.log(notes);
-		},
-		[ notes ]
-	);
+		fetchData();
+		//console.log(notes);
+	}, []);
 
 	const handleSearch = (e) => {
 		e.preventDefault();
@@ -66,6 +64,7 @@ function App() {
 				password: currentUser.password
 			})
 		})
+
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -76,8 +75,8 @@ function App() {
 			});
 	};
 
+	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const createNote = (newNote) => {
-		const user = JSON.parse(localStorage.getItem('userInfo'));
 		fetch('http://localhost:8000/notes', {
 			method: 'POST',
 			headers: {
@@ -97,6 +96,11 @@ function App() {
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
+	
+	const filterNotes = notes.filter ((note)=> {
+		return note.user.includes(user._id)
+	})
+
 	console.log(token);
 	return (
 		<Router>
@@ -108,11 +112,11 @@ function App() {
 						<SideBar createNote={createNote} />
 						<Container notes={filterSearch} />
 					</Route>
+					<Route path="/profile/:id">
+						<Profile notes={filterNotes} />
+					</Route>
 					<Route path="/">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
-					</Route>
-					<Route path="/profile/:id">
-						<Profile />
 					</Route>
 				</Switch>
 				<Footer />

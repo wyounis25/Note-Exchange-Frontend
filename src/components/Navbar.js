@@ -23,7 +23,7 @@ function Navbar() {
 				<PersonSharpIcon className="navbar__user" />
 			</IconButton>
 			<IconButton onClick={goToProfile}>
-				<h4>{user.name}</h4>
+				<h4>"hi</h4>
 			</IconButton>
 		</div>
 	);

@@ -1,9 +1,16 @@
 import React from 'react'
 import "./Profile.css"
-function Profile() {
+import NoteCard from './NoteCard'
+function Profile({notes}) {
+    const user = JSON.parse(localStorage.getItem('userInfo'));
+    console.log(user.note)
     return (
         <div className="profile">
-            <h2>Profile</h2>
+            {notes = notes.map(note => {
+                return <NoteCard note = {note}/>
+            })}
+            <h2>{user.name}</h2>
+            
         </div>
     )
 }
