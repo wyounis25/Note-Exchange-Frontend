@@ -1,62 +1,41 @@
 import React, { useState } from 'react';
 import './SideBar.css';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
 
-function SideBar({ userToken }) {
-	const [ category, setCategory ] = useState('');
-	const [ label, setLabel ] = useState('');
-	const [ content, setConent ] = useState('');
+function SideBar({ createNote }) {
+	const user = JSON.parse(localStorage.getItem('userInfo'))
+	console.log(user)
+	const [ note, setNote ] = useState({
+		category: '',
+		label: '',
+		content: '',
+		price: 0,
+		user: user._id
+	});
 
-	
-	console.log(category);
-	console.log(label);
-	console.log(content);
-	// console.log(label)
-	// console.log(content)
+	const handleChange = (e) => {
+		e.preventDefault();
+		setNote({
+			...note,
+			[e.target.name]: e.target.value
+		});
+		console.log(note);
+	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('THOUGH');
-		axios.post('http://localhost:8000/notes', {
-			category: category,
-			label: label,
-			content: content
-			// user: decode.id
-		});
+		createNote(note);
+		
 	};
 
-	// console.log(userToken)
-	// var decode = jwt_decode(userToken)
-	// console.log(decode)
-	// console.log(decode.id)
 	return (
 		<div className="sidebar">
 			<div className="sidebar__new">
-				<form onSubmit={(e) => handleSubmit(e)}>
-					<input
-						placeholder="Category"
-						name="category"
-						value={category}
-						onChange={(e) => {
-							setCategory(e.target.value);
-						}}
-					/>
-					<input
-						placeholder="Label"
-						name="label"
-						value={label}
-						onChange={(e) => {
-							setLabel(e.target.value);
-						}}
-					/>
-					<input
-						placeholder="Content"
-						name="content"
-						value={content}
-						onChange={(e) => {
-							setConent(e.target.value);
-						}}
-					/>
+				<form onSubmit={handleSubmit}>
+					<input placeholder="Category" name="category" value={note.category} onChange={handleChange} />
+					<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
+					<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
+					<input type = "number" placeholder="$Price" name="price" value={note.price} onChange={handleChange} />
 					<button>Submit</button>
 				</form>
 			</div>

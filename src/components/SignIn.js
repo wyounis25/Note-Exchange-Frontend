@@ -22,10 +22,20 @@ function SignIn({ signUpSession }) {
 		});
 	};
 	console.log(profile)
+
 	const handleSignUp = (e) => {
-		e.preventDefault();
-		console.log('SIGNUP');
-		signUpSession(profile);
+		const createToken = () => {
+
+			e.preventDefault();
+			console.log('SIGNUP');
+			signUpSession(profile);
+		}
+		const switchToHome = () => {
+            let path = '/home'
+            history.push(path)
+		}
+		createToken()
+		switchToHome()
 	};
 
 	return (

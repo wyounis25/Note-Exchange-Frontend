@@ -13,22 +13,20 @@ function App() {
 	const [ notes, setnotes ] = useState([]);
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
-	useEffect(() => {
-		async function fetchData() {
-			const request = await axios.get('http://localhost:8000/notes');
-			///console.log(request.data)
-			setnotes(request.data);
-		}
-		fetchData();
-		//console.log(notes);
-	}, []);
+	useEffect(
+		() => {
+			async function fetchData() {
+				const request = await axios.get('http://localhost:8000/notes');
+				///console.log(request.data)
+				setnotes(request.data);
+			}
 
+			fetchData();
+			//console.log(notes);
+		},
+		[ notes ]
+	);
 
-	const getUser = (newSession) => {
-		console.log('we it this');
-		setToken(newSession)
-	};
-	
 	const handleSearch = (e) => {
 		e.preventDefault();
 		console.log(e.target.value);
@@ -49,8 +47,8 @@ function App() {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				localStorage.token = data.token;
-				console.log(localStorage.token)
+				localStorage.setItem('userInfo', JSON.stringify(data));
+				console.log(localStorage.token);
 				setToken(localStorage.token);
 			});
 	};
@@ -61,6 +59,7 @@ function App() {
 				'Content-Type': 'application/json',
 				Accept: 'application/json'
 			},
+
 			body: JSON.stringify({
 				name: currentUser.name,
 				username: currentUser.username,
@@ -70,28 +69,50 @@ function App() {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
+				localStorage.setItem('userInfo', JSON.stringify(data));
 				localStorage.token = data.token;
 				console.log(localStorage.token);
 				setToken(localStorage.token);
 			});
 	};
+
+	const createNote = (newNote) => {
+		const user = JSON.parse(localStorage.getItem('userInfo'));
+		fetch('http://localhost:8000/notes', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+				Authorization: `Bearer ${token}`
+			},
+			body: JSON.stringify({
+				category: newNote.category,
+				label: newNote.label,
+				content: newNote.content,
+				price: newNote.price,
+				user: user._id
+			})
+		});
+	};
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
 	console.log(token);
-
 	return (
 		<Router>
 			<div className="App">
-				<Navbar/>
+				<Navbar />
 				<Switch>
 					<Route path="/home">
 						<Search handleSearch={handleSearch} />
-						<SideBar userToken={token} />
+						<SideBar createNote={createNote} />
 						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
+					</Route>
+					<Route path="/profile/:id">
+						<Profile />
 					</Route>
 				</Switch>
 				<Footer />
