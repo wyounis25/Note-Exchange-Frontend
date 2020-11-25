@@ -1,13 +1,13 @@
 import React from 'react'
 import "./Profile.css"
-import NoteCard from './NoteCard'
-function Profile({notes}) {
+import UserNote from './UserNote'
+function Profile({notes,handleDelete}) {
     const user = JSON.parse(localStorage.getItem('userInfo'));
     console.log(user.note)
     return (
         <div className="profile">
             {notes = notes.map(note => {
-                return <NoteCard note = {note}/>
+                return <UserNote note = {note} handleDelete={handleDelete}/>
             })}
             <h2>{user.name}</h2>
             

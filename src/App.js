@@ -64,7 +64,6 @@ function App() {
 				password: currentUser.password
 			})
 		})
-
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -93,13 +92,29 @@ function App() {
 			})
 		});
 	};
+
+	const handleDelete = (id) => {
+		console.log(id);
+		// setnotes({
+		fetch(`http://localhost:8000/notes/${id}`, { method: 'DELETE',
+		headers: {
+			Authorization: `Bearer ${token}`
+		},
+	 }).then(() => {
+			const newNote = notes.filter((note) => note._id != id);
+			setnotes(newNote);
+
+		});
+		console.log(notes)
+		// })
+	};
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
-	
-	const filterNotes = notes.filter ((note)=> {
-		return note.user.includes(user._id)
-	})
+
+	const filterNotes = notes.filter((note) => {
+		return note.user.includes(user._id);
+	});
 
 	console.log(token);
 	return (
@@ -113,7 +128,7 @@ function App() {
 						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/profile/:id">
-						<Profile notes={filterNotes} />
+						<Profile notes={filterNotes} handleDelete={handleDelete} />
 					</Route>
 					<Route path="/">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
