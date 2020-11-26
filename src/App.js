@@ -76,23 +76,25 @@ function App() {
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 
-	// const createNote = (newNote) => {
-	// 	fetch('http://localhost:8000/notes', {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 			Accept: 'application/json',
-	// 			Authorization: `Bearer ${token}`
-	// 		},
-	// 		body: JSON.stringify({
-	// 			category: newNote.category,
-	// 			label: newNote.label,
-	// 			content: newNote.content,
-	// 			price: newNote.price,
-	// 			user: user._id
-	// 		})
-	// 	}).then(res => res.json()
-	// };
+	 const createNote = (newNote) => {
+		fetch('http://localhost:8000/notes', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+				Authorization: `Bearer ${token}`
+			},
+			body: JSON.stringify({
+				category: newNote.category,
+				label: newNote.label,
+				content: newNote.content,
+				price: newNote.price,
+				user: user._id
+			})
+		}).then(res => res.json()).then(data => {
+			setnotes(...notes,data)
+		})
+	};
 
 	// const updateNote = (updatedNote) => {
 	// 	fetch('http://localhost:8000/notes', {
@@ -109,17 +111,14 @@ function App() {
 	// 			price: updatedNote.price,
 	// 			user: user._id
 	// 		})
-	// 	}
+	// 	})
 	// }
+		
 
 	const handleDelete = (id) => {
 		console.log(id);
 		// setnotes({
-		fetch(`http://localhost:8000/notes/${id}`, { method: 'DELETE',
-		headers: {
-			Authorization: `Bearer ${token}`
-		},
-	 }).then(() => {
+		fetch(`http://localhost:8000/notes/${id}`, { method: 'DELETE'}).then(() => {
 			const newNote = notes.filter((note) => note._id != id);
 			setnotes(newNote);
 

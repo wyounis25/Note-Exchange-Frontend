@@ -2,7 +2,7 @@ import React from 'react';
 
 function Edit() {
 
-    // const user = JSON.parse(localStorage.getItem('userInfo'))
+    const user = JSON.parse(localStorage.getItem('userInfo'))
 	// console.log(user)
 	const [ note, setNote ] = useState({
 		category: '',
@@ -24,8 +24,8 @@ function Edit() {
 		e.preventDefault();
 		console.log('THOUGH');
 		createNote(note);
-		
-	};
+    };
+    
 	return (
 		<div className="edit">
 			<form onSubmit={handleSubmit}>
