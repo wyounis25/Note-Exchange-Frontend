@@ -155,7 +155,7 @@ function App() {
 					<Route>
 						<Edit path ="/edit/:id"  updateNote={updateNote}/>
 					</Route>
-					<Route path="/">
+					<Route path="/welcome">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
 					</Route>
 				</Switch>
