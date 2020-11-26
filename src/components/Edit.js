@@ -1,10 +1,17 @@
 import React from 'react';
+import './NoteCard.css';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Edit() {
-
-    const user = JSON.parse(localStorage.getItem('userInfo'))
+function Edit({updateNote}) {
+	const location = useLocation();
+	const mynote = location.state.note;
+	console.log(mynote);
+	const user = JSON.parse(localStorage.getItem('userInfo'));
 	// console.log(user)
+
 	const [ note, setNote ] = useState({
+        _id: mynote._id,
 		category: '',
 		label: '',
 		content: '',
@@ -21,20 +28,30 @@ function Edit() {
 		console.log(note);
 	};
 	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log('THOUGH');
-		createNote(note);
-    };
-    
+        e.preventDefault();
+        updateNote(note)
+        console.log('THOUGH');
+        
+	};
+
 	return (
 		<div className="edit">
 			<form onSubmit={handleSubmit}>
-				<input placeholder="Category" name="category" value={note.category} onChange={handleChange} />
-				<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
-				<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
-				<input type="number" placeholder="$Price" name="price" value={note.price} onChange={handleChange} />
+				<input placeholder={mynote.category} name="category" value={note.category} onChange={handleChange} />
+				<input placeholder={mynote.label} name="label" value={note.label} onChange={handleChange} />
+				<input placeholder={mynote.content} name="content" value={note.content} onChange={handleChange} />
+				<input type="number" placeholder={`$${mynote.price}`} name="price" value={note.price} onChange={handleChange} />
 				<button>Submit</button>
 			</form>
+
+			<div className="note">
+				<h3>{mynote.category}</h3>
+				<h4>{mynote.label}</h4>
+				<p>{mynote.content}</p>
+				<h4>
+					<strong>{`$${mynote.price}`}</strong>
+				</h4>
+			</div>
 		</div>
 	);
 }

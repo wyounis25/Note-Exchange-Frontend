@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './NoteCard.css';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 function UserNote({ note, handleDelete}) {
-const [edit, setEdit] = useState(false)
+const history = useHistory()
    
-	const handleClick = ()=> {
-		setEdit(!false)
+	const handleClick = (id)=> {
+		let path = `/edit/${id}`
+		history.push(path, {note:note})
 	}
 
 	return (
@@ -20,7 +22,7 @@ const [edit, setEdit] = useState(false)
 			<div>
 				<Button onClick={()=> handleDelete(note._id)} color="secondary">DELETE</Button>
 				
-				<Button onClick={handleClick} color="primary">EDIT</Button>
+				<Button onClick={()=>handleClick(note._id)} color="primary">EDIT</Button>
 			</div>
 		</div>
 	);

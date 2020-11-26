@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Portal from './components/Portal';
 import axios from 'axios';
 import Profile from './components/Profile';
+import Edit from './components/Edit';
 
 function App() {
 	const [ notes, setnotes ] = useState([]);
@@ -96,23 +97,26 @@ function App() {
 		})
 	};
 
-	// const updateNote = (updatedNote) => {
-	// 	fetch('http://localhost:8000/notes', {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'Content-Type': 'application/json',
-	// 			Accept: 'application/json',
-	// 			Authorization: `Bearer ${token}`
-	// 		},
-	// 		body: JSON.stringify({
-	// 			category: updatedNote.category,
-	// 			label: updatedNote.label,
-	// 			content: updatedNote.content,
-	// 			price: updatedNote.price,
-	// 			user: user._id
-	// 		})
-	// 	})
-	// }
+	const updateNote = (updatedNote) => {
+		console.log(updatedNote._id)
+		fetch(`http://localhost:8000/notes/${updatedNote._id}`, {
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+				Authorization: `Bearer ${token}`
+			},
+			body: JSON.stringify({
+				category: updatedNote.category,
+				label: updatedNote.label,
+				content: updatedNote.content,
+				price: updatedNote.price,
+				user: user._id
+			})
+		}).then(res  => res.json()).then(data => {
+			setnotes({...notes,data})
+		})
+	}
 		
 
 	const handleDelete = (id) => {
@@ -147,6 +151,9 @@ function App() {
 					</Route>
 					<Route path="/profile/:id">
 						<Profile notes={filterNotes} handleDelete={handleDelete} />
+					</Route>
+					<Route>
+						<Edit path ="/edit/:id"  updateNote={updateNote}/>
 					</Route>
 					<Route path="/">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
