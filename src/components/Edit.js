@@ -4,11 +4,12 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function Edit({updateNote}) {
+	console.log("just got here")
 	const location = useLocation();
 	const mynote = location.state.note;
 	console.log(mynote);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
-	// console.log(user)
+	console.log("now here")
 
 	const [ note, setNote ] = useState({
         _id: mynote._id,

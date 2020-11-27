@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './SideBar.css';
 import axios from 'axios';
 
-function SideBar({ createNote }) {
+function SideBar({ createNote, filterCategory }) {
 	const user = JSON.parse(localStorage.getItem('userInfo'))
+	const [select, setselect] = useState("")
+	const [price, setprice] = useState("")
 	console.log(user)
 	const [ note, setNote ] = useState({
 		category: '',
@@ -28,6 +30,20 @@ function SideBar({ createNote }) {
 		
 	};
 
+	const handleSelect = (e) => {
+		e.preventDefault()
+		setselect(e.target.value)
+		filterCategory(select)
+	}
+
+	const handlePrice = (e) => {
+		e.preventDefault()
+		setprice(e.target.value)
+	}
+
+	console.log(price)
+	console.log(select)
+
 	return (
 		<div className="sidebar">
 			<div className="sidebar__new">
@@ -39,10 +55,11 @@ function SideBar({ createNote }) {
 					<button>Submit</button>
 				</form>
 			</div>
+			<br/>
 			<div>
 				<div className="sidebar__category">
 					<label>Category</label>
-					<select name="category">
+					<select name="category" onChange={handleSelect}>
 						<option value="science" />
 						<option value="science">Science</option>
 						<option value="math">Math</option>
@@ -51,10 +68,10 @@ function SideBar({ createNote }) {
 				</div>
 				<div className="sidebar__price">
 					<label>Price</label>
-					<select name="price">
+					<select name="price" onChange={handlePrice}>
 						<option value="science" />
-						<option value="science">High to Low</option>
-						<option value="math">Low to High</option>
+						<option value="high">High to Low</option>
+						<option value="low">Low to High</option>
 					</select>
 				</div>
 			</div>

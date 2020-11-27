@@ -10,6 +10,7 @@ import Portal from './components/Portal';
 import axios from 'axios';
 import Profile from './components/Profile';
 import Edit from './components/Edit';
+import Note from './components/Note';
 
 function App() {
 	const [ notes, setnotes ] = useState([]);
@@ -77,7 +78,7 @@ function App() {
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 
-	 const createNote = (newNote) => {
+	const createNote = (newNote) => {
 		fetch('http://localhost:8000/notes', {
 			method: 'POST',
 			headers: {
@@ -92,13 +93,15 @@ function App() {
 				price: newNote.price,
 				user: user._id
 			})
-		}).then(res => res.json()).then(data => {
-			setnotes(...notes,data)
 		})
+			.then((res) => res.json())
+			.then((data) => {
+				setnotes(...notes, data);
+			});
 	};
 
 	const updateNote = (updatedNote) => {
-		console.log(updatedNote._id)
+		console.log(updatedNote._id);
 		fetch(`http://localhost:8000/notes/${updatedNote._id}`, {
 			method: 'PATCH',
 			headers: {
@@ -113,21 +116,21 @@ function App() {
 				price: updatedNote.price,
 				user: user._id
 			})
-		}).then(res  => res.json()).then(data => {
-			setnotes({...notes,data})
 		})
-	}
-		
+			.then((res) => res.json())
+			.then((data) => {
+				setnotes({ ...notes, data });
+			});
+	};
 
 	const handleDelete = (id) => {
 		console.log(id);
 		// setnotes({
-		fetch(`http://localhost:8000/notes/${id}`, { method: 'DELETE'}).then(() => {
+		fetch(`http://localhost:8000/notes/${id}`, { method: 'DELETE' }).then(() => {
 			const newNote = notes.filter((note) => note._id != id);
 			setnotes(newNote);
-
 		});
-		console.log(notes)
+		console.log(notes);
 		// })
 	};
 	const filterSearch = notes.filter((note) => {
@@ -138,6 +141,14 @@ function App() {
 		return note.user.includes(user._id);
 	});
 
+	const filterCategory = (newCategory) => {
+		console.log(newCategory);
+		notes.filter((note) => {
+			return note.category.toLowerCase().includes(newCategory.toLowerCase());
+		});
+		console.log('ran');
+	};
+
 	console.log(token);
 	return (
 		<Router>
@@ -146,14 +157,17 @@ function App() {
 				<Switch>
 					<Route path="/home">
 						<Search handleSearch={handleSearch} />
-						<SideBar createNote={createNote} />
+						<SideBar createNote={createNote} filterCategory={filterCategory} />
 						<Container notes={filterSearch} />
 					</Route>
 					<Route path="/profile/:id">
 						<Profile notes={filterNotes} handleDelete={handleDelete} />
 					</Route>
-					<Route>
-						<Edit path ="/edit/:id"  updateNote={updateNote}/>
+					<Route  path="/edit/:id" >
+						<Edit updateNote={updateNote} />
+					</Route>
+					<Route path="/note/:id/">
+						<Note/>
 					</Route>
 					<Route path="/welcome">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />
