@@ -19,12 +19,10 @@ function App() {
 	useEffect(() => {
 		async function fetchData() {
 			const request = await axios.get('http://localhost:8000/notes');
-			///console.log(request.data)
 			setnotes(request.data);
 		}
 
 		fetchData();
-		//console.log(notes);
 	}, []);
 
 	const handleSearch = (e) => {
@@ -32,6 +30,7 @@ function App() {
 		console.log(e.target.value);
 		setSearch(e.target.value);
 	};
+
 	const loginSession = (currentUser) => {
 		fetch('http://localhost:8000/users/login', {
 			method: 'POST',
@@ -137,9 +136,14 @@ function App() {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
 
-	const filterNotes = notes.filter((note) => {
-		return note.user.includes(user._id);
-	});
+	
+
+		const filterNotes = notes.filter((note) => {
+			return note.user.includes(user._id);
+		});
+	
+
+
 
 	const filterCategory = (newCategory) => {
 		console.log(newCategory);
@@ -148,7 +152,6 @@ function App() {
 		});
 		console.log('ran');
 	};
-
 	console.log(token);
 	return (
 		<Router>
@@ -163,11 +166,11 @@ function App() {
 					<Route path="/profile/:id">
 						<Profile notes={filterNotes} handleDelete={handleDelete} />
 					</Route>
-					<Route  path="/edit/:id" >
+					<Route path="/edit/:id">
 						<Edit updateNote={updateNote} />
 					</Route>
 					<Route path="/note/:id/">
-						<Note/>
+						<Note />
 					</Route>
 					<Route path="/welcome">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />

@@ -1,4 +1,4 @@
-.note__grid{
+curc.note__grid{
     /* display: grid;
     grid-template-columns: auto auto auto;
     margin: 10px;
@@ -35,4 +35,29 @@
 
 .note:hover{
     transform: scale(1.05)
+}
+
+.star:hover {
+    
+}
+
+#rating_bar{
+	width:100px;
+	height:100px;
+	margin: 4px 175px !important;    
+    display:inline-block;
+    display:inline;
+}
+
+#rating_bar > span:before{
+	 content:'O';
+     color: #c7c5c5;
+	 cursor:pointer;
+    font-size:3em;
+	 
+}
+#rating_bar > span:hover:before {
+   
+	color: #4bce32;
+
 }

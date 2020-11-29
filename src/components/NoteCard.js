@@ -24,42 +24,7 @@ function NoteCard({ note }) {
 	const ave = (sum / arr.length).toFixed(1);
 	console.log(ave);
 
-	// console.log(isNaN(ave))
-
-	// const swit = () => {
-
-	// 	switch (bob) {
-	// 		case bob > 2:
-	// 			console.log("0-2")
-	// 			break;
-	// 		case bob < 4:
-	// 			console.log("more than average")
-	// 			break;
-	// 		default:
-	// 			break;
-	// 	}
-	// }
-
-	// let ratings = () => {
-	// 	if (ave > 2) {
-	// 		setrating(true)
-	// 	} else if (ave < 2) {
-	// 		return <p>bob</p>;
-	// 	} else {
-	// 		// <StarOutlineIcon />;
-	// 	}
-	// };
-
-	// console.log(ave)
-
-	// const averating =  note.experiences.rating
-	// if (note.user == user._id) {
-	// 	 setCurrentNote(true)
-	// }
-
-	// checkNote()
-	// console.log(note.user);
-	// console.log(user._id);
+	
 
 	const notePage = (id) => {
 		let path = `/note/${id}`

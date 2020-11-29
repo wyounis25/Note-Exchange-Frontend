@@ -37,7 +37,7 @@ function Navbar() {
 				<PersonSharpIcon className="navbar__user" />
 			</IconButton>
 			<IconButton onClick={goToProfile}>
-				<h4>{user ? user.name : 'welcome'}</h4>
+				<h4>{user? user?.name : 'welcome'}</h4>
 			</IconButton>
 			<Button onClick={handleSession} variant="outlined" color="secondary">
 				LOGOUT

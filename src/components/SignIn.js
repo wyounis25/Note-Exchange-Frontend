@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
 function SignIn({ signUpSession }) {
+	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const history = useHistory();
 	const [ profile, setprofile ] = useState({
 		name: '',
@@ -21,21 +22,16 @@ function SignIn({ signUpSession }) {
 			[e.target.name]: e.target.value
 		});
 	};
-	console.log(profile)
+	console.log(profile);
 
 	const handleSignUp = (e) => {
-		const createToken = () => {
-
-			e.preventDefault();
-			console.log('SIGNUP');
-			signUpSession(profile);
-		}
-		const switchToHome = () => {
-            let path = '/home'
-            history.push(path)
-		}
-		createToken()
-		switchToHome()
+		e.preventDefault();
+		console.log('SIGNUP');
+		signUpSession(profile);
+	
+			let path = '/home';
+			history.push(path);
+		
 	};
 
 	return (
