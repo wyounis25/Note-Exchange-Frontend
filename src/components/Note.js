@@ -72,6 +72,12 @@ function Note({ allUsers }) {
 					newarr.push(count);
 				}
 				console.log(newarr)
+
+				let sliceArr = newarr.splice(0,1)
+				console.log(sliceArr)
+				sliceArr.map(element => {
+					return console.log(element.value)
+				})
 				
 			})
 		);

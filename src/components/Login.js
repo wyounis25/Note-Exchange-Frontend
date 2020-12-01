@@ -26,9 +26,6 @@ function Login({ loginSession }) {
 		console.log('we here');
 		e.preventDefault();
 		loginSession(userSession);
-			let path = '/home';
-			history.push(path);
-		
 	};
 
 	return (

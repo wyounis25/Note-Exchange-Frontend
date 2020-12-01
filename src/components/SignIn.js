@@ -28,12 +28,7 @@ function SignIn({ signUpSession }) {
 		e.preventDefault();
 		console.log('SIGNUP');
 		signUpSession(profile);
-	
-			let path = '/home';
-			history.push(path);
-		
 	};
-
 	return (
 		<div className="signin">
 			<form onSubmit={(e) => handleSignUp(e)}>
