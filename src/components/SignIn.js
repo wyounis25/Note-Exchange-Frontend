@@ -22,13 +22,14 @@ function SignIn({ signUpSession }) {
 			[e.target.name]: e.target.value
 		});
 	};
-	console.log(profile);
 
+	console.log(profile);
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		console.log('SIGNUP');
 		signUpSession(profile);
 	};
+
 	return (
 		<div className="signin">
 			<form onSubmit={(e) => handleSignUp(e)}>

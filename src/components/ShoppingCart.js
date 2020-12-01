@@ -1,12 +1,15 @@
 import React from 'react';
 import './ShoppingCart.css';
+import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 function ShoppingCart({ userCart }) {
+	const history = useHistory()
 	console.log(userCart);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const currentUser = userCart.filter((current) => {
 		return current._id.includes(user._id);
 	});
-
+	
 	const currentCart = currentUser.map((cart) => {
 		return cart.carts;
 	});
@@ -26,6 +29,10 @@ function ShoppingCart({ userCart }) {
 	console.log(items);
 	console.log(item);
 	console.log(unique);
+	const checkout = () => {
+		const path = '/checkout'
+		history.push(path, {unique:unique})
+	}
 	return (
 		<div>
 			{unique.map((item) => {
@@ -35,6 +42,7 @@ function ShoppingCart({ userCart }) {
 					</p>
 				);
 			})}
+			<Button onClick={checkout}>CHECKOUT</Button>
 		</div>
 	);
 }

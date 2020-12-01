@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import Edit from './components/Edit';
 import Note from './components/Note';
 import ShoppingCart from './components/ShoppingCart';
+import Checkout from './components/Checkout';
 
 function Home() {
     const [ Category, setCategory ] = useState('');
@@ -131,6 +132,9 @@ function Home() {
 						</Route>
 						<Route path="/shoppingcart">
 							<ShoppingCart />
+						</Route>
+						<Route path="/checkout">
+						<Checkout/>
 						</Route>
 						<Route path="/">
 							<Search handleSearch={handleSearch} />
