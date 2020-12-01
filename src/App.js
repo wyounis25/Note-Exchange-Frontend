@@ -11,19 +11,28 @@ import axios from 'axios';
 import Profile from './components/Profile';
 import Edit from './components/Edit';
 import Note from './components/Note';
+import ShoppingCart from './components/ShoppingCart';
 
 function App() {
+	const [Category, setCategory] = useState('')
 	const [ notes, setnotes ] = useState([]);
+	const [ users, setUsers] = useState([])
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
+
 	useEffect(() => {
 		async function fetchData() {
 			const request = await axios.get('http://localhost:8000/notes');
 			setnotes(request.data);
 		}
-
+		async function fetchUser() {
+			const request = await axios.get('http://localhost:8000/users');
+			setUsers(request.data);
+		}
 		fetchData();
+		fetchUser();
 	}, []);
+	console.log(users)
 
 	const handleSearch = (e) => {
 		e.preventDefault();
@@ -43,6 +52,7 @@ function App() {
 				password: currentUser.password
 			})
 		})
+
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -50,7 +60,9 @@ function App() {
 				console.log(localStorage.token);
 				setToken(localStorage.token);
 			});
+
 	};
+
 	const signUpSession = (currentUser) => {
 		fetch('http://localhost:8000/users', {
 			method: 'POST',
@@ -64,7 +76,9 @@ function App() {
 				username: currentUser.username,
 				password: currentUser.password
 			})
+
 		})
+
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -73,6 +87,7 @@ function App() {
 				console.log(localStorage.token);
 				setToken(localStorage.token);
 			});
+
 	};
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
@@ -132,36 +147,33 @@ function App() {
 		console.log(notes);
 		// })
 	};
+	
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
 
-	
-
-		const filterNotes = notes.filter((note) => {
+	const filterNotes = notes.filter((note) => {
 			return note.user.includes(user._id);
-		});
-	
-
-
-
+	});
+	let currentCategory
 	const filterCategory = (newCategory) => {
-		console.log(newCategory);
-		notes.filter((note) => {
-			return note.category.toLowerCase().includes(newCategory.toLowerCase());
-		});
-		console.log('ran');
+		return (
+			currentCategory = notes.filter((note) => {
+			note.category.toLowerCase().includes(newCategory.toLowerCase());
+		   }))
 	};
-	console.log(token);
+	
+console.log(currentCategory)
+
 	return (
 		<Router>
 			<div className="App">
-				<Navbar />
+				<Navbar userCart={users}/>
 				<Switch>
 					<Route path="/home">
 						<Search handleSearch={handleSearch} />
 						<SideBar createNote={createNote} filterCategory={filterCategory} />
-						<Container notes={filterSearch} />
+						<Container notes={filterSearch} filterCategory={currentCategory} />
 					</Route>
 					<Route path="/profile/:id">
 						<Profile notes={filterNotes} handleDelete={handleDelete} />
@@ -170,7 +182,10 @@ function App() {
 						<Edit updateNote={updateNote} />
 					</Route>
 					<Route path="/note/:id/">
-						<Note />
+						<Note allUsers={users}/>
+					</Route>
+					<Route path="/shoppingcart">
+						<ShoppingCart />
 					</Route>
 					<Route path="/welcome">
 						<Portal signUpSession={signUpSession} loginSession={loginSession} />

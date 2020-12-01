@@ -1,15 +1,16 @@
-import React from 'react';
+import React, {  useState } from 'react';
 import './Navbar.css';
 import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 import IconButton from '@material-ui/core/IconButton';
 import NoteIcon from '@material-ui/icons/Note';
 import { useHistory } from 'react-router-dom';
 import { Button } from '@material-ui/core';
-
-function Navbar() {
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ShoppingCart from './ShoppingCart';
+function Navbar({userCart}) {
+	const [cart, setCart] = useState(true)
 	const history = useHistory();
 	const user = JSON.parse(localStorage.getItem('userInfo'));
-
 	const goToProfile = () => {
 		let path = `/profile/${user._id}`;
 		history.push(path);
@@ -26,6 +27,7 @@ function Navbar() {
 		history.push(path);
 	};
 
+
 	return (
 		<div className="navbar">
 			<NoteIcon className="navbar__logo" />
@@ -39,6 +41,9 @@ function Navbar() {
 			<IconButton onClick={goToProfile}>
 				<h4>{user? user?.name : 'welcome'}</h4>
 			</IconButton>
+			<IconButton onClick={()=>setCart(!cart)}><ShoppingCartIcon/></IconButton>
+
+			{cart? null: <ShoppingCart userCart={userCart} />}
 			<Button onClick={handleSession} variant="outlined" color="secondary">
 				LOGOUT
 			</Button>

@@ -6,7 +6,6 @@ function SideBar({ createNote, filterCategory }) {
 	const user = JSON.parse(localStorage.getItem('userInfo'))
 	const [select, setselect] = useState("")
 	const [price, setprice] = useState("")
-	console.log(user)
 	const [ note, setNote ] = useState({
 		category: '',
 		label: '',
@@ -31,7 +30,6 @@ function SideBar({ createNote, filterCategory }) {
 	};
 
 	const handleSelect = (e) => {
-		e.preventDefault()
 		setselect(e.target.value)
 		filterCategory(select)
 	}

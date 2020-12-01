@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './NoteCard.css';
-import { Button } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarHalfIcon from '@material-ui/icons/StarHalf';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useHistory } from 'react-router-dom';
 function NoteCard({ note }) {
 	const history = useHistory()
+	const [hover, sethover] = useState(false)
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const arr = note.experiences.map((exp) => {
@@ -32,6 +32,7 @@ function NoteCard({ note }) {
 	}
 	return (
 		<div className="note"
+		// onMouseEnter={sethover(!hover)}
 		onClick={()=>notePage(note._id)}
 		>
 			<h3>{note.category}</h3>
@@ -46,13 +47,16 @@ function NoteCard({ note }) {
 					</div>
 				) : (
 					<div>
-						<p>{ave} </p> <StarIcon />
+						<p>{ave} </p> <StarIcon style={{color: '#bedbbb'}}/>
 					</div>
 				)}
 			</p>
 			<h4>
 				<strong>{`$${note.price}`}</strong>
 			</h4>
+			
+		
+			
 		</div>
 	);
 }
