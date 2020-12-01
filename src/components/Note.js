@@ -7,19 +7,18 @@ import StarRoundedIcon from '@material-ui/icons/StarRounded';
 import { useLocation } from 'react-router-dom';
 import ShoppingCart from './ShoppingCart';
 
-function Note({allUsers}) {
+function Note({ allUsers }) {
 	const [ comment, setcomment ] = useState('');
 	const [ star, setstar ] = useState(null);
 	const [ hover, sethover ] = useState(null);
-	const [cart, setcart] = useState([])
+	const [ cart, setcart ] = useState([]);
 	const currentUser = JSON.parse(localStorage.getItem('userInfo'));
 	const location = useLocation();
 	const mynote = location.state.note;
 
-	console.log(mynote._id)
+	console.log(mynote._id);
 
-	console.log(allUsers)
-
+	console.log(allUsers);
 
 	const user = console.log(mynote.experiences.review);
 
@@ -27,54 +26,58 @@ function Note({allUsers}) {
 		console.log(e.target.value);
 		e.preventDefault();
 		setcomment(e.target.value);
-
 	};
-	const userObject = allUsers.filter(current => {
-		return current._id == currentUser._id
-	})
+	const userObject = allUsers.filter((current) => {
+		return current._id == currentUser._id;
+	});
 
-	const arrCarts = userObject.map(cart => {
-		return cart.carts
-	})
-	console.log(arrCarts)
+	const arrCarts = userObject.map((cart) => {
+		return cart.carts;
+	});
+	console.log(arrCarts);
 
-	let carts 
-	const allCarts =  arrCarts.map(cart => {
-		return carts = cart
-	})
+	let carts;
+	const allCarts = arrCarts.map((cart) => {
+		return (carts = cart);
+	});
 
-console.log(carts)
+	console.log(carts);
 	const handleClick = () => {
-		console.log(currentUser._id)
+		console.log(currentUser._id);
 		fetch(`http://localhost:8000/users/carts/${currentUser._id}`, {
-		method: 'PATCH',
-		headers: {
-			'Content-Type': 'application/json',
-			Accept: 'application/json',
-			Authorization: `Bearer ${currentUser.token}`
-		},
-		body: JSON.stringify({
+			method: 'PATCH',
+			headers: {
+				'Content-Type': 'application/json',
+				Accept: 'application/json',
+				Authorization: `Bearer ${currentUser.token}`
+			},
+			body: JSON.stringify({
 				category: mynote.category,
 				label: mynote.label,
 				price: mynote.price,
-				note: mynote._id 
-		})
-		}).then((res) => res.json().then((data) => {
-			setcart(data)
-			console.log(data.carts.map(itm => {
-				itm.note.map()
-				return 
-			}))
-			// carts.map(itmObject=> {
-			// 	if (itmObject._id === data._id) {
-			// 	}
-			// })
+				note: mynote._id
+			})
+		}).then((res) =>
+			res.json().then((data) => {
+				setcart(data);
+				let notearr = data.carts.map((itm) => {
+					return itm.note;
+				});
+				console.log(notearr);
+				let count = {};
+				let newarr = [];
+				for (var i = 0; i < notearr.length; i++) {
+					var num = notearr[i];
+					count[num] = count[num] ? count[num] + 1 : 1;
+					newarr.push(count);
+				}
+				console.log(newarr)
+				
+			})
+		);
+	};
 
-		}));
-
-	}
-
-	console.log(cart)
+	console.log(cart);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('submit');
@@ -86,10 +89,10 @@ console.log(carts)
 				Authorization: `Bearer ${currentUser.token}`
 			},
 			body: JSON.stringify({
-					rating: star,
-					review: comment,
-					user: currentUser._id,
-					name: currentUser.name
+				rating: star,
+				review: comment,
+				user: currentUser._id,
+				name: currentUser.name
 			})
 		}).then((res) => res.json());
 	};
@@ -110,7 +113,6 @@ console.log(carts)
 				<div>
 					<h2>Reviews</h2>
 					{mynote.experiences.map((exp) => {
-
 						return (
 							<p>
 								{exp.name}:{exp.review}
