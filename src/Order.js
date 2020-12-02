@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import Payment from './Payment';
 
-function Order() {
+function Order({sum,myCart}) {
 	const [ email, setemail ] = useState('');
-
 	console.log(email);
 
 	// const validateEmail = (userEmail) => {
@@ -24,7 +23,7 @@ function Order() {
 			</form>
 			<h3>PAYMENT METHOD</h3>
             {(email.includes('@') && email.includes('.com')) ?
-             <Payment/> 
+             <Payment sum={sum} email={email} myCart={myCart}/> 
              : null}
 		</div>
 	);

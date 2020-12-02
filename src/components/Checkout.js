@@ -35,7 +35,7 @@ function Checkout() {
             
 			<h3/>
             <Button onClick={payRoute}> PAY</Button>
-            {pay? <Order/> : null}
+            {pay? <Order sum={sum} myCart={myCart}/> : null}
 
 		</div>
 	);
