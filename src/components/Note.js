@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './NoteCard.css';
-import { Button, createChainedFunction } from '@material-ui/core';
+import { Button, createChainedFunction, IconButton } from '@material-ui/core';
 import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 import ShoppingCart from './ShoppingCart';
 
@@ -12,6 +12,8 @@ function Note({ allUsers }) {
 	const [ star, setstar ] = useState(null);
 	const [ hover, sethover ] = useState(null);
 	const [ cart, setcart ] = useState([]);
+
+	// const [mynotes, setmynotes] = useState([])
 	const currentUser = JSON.parse(localStorage.getItem('userInfo'));
 	const location = useLocation();
 	const mynote = location.state.note;
@@ -19,7 +21,7 @@ function Note({ allUsers }) {
 	console.log(mynote._id);
 
 	console.log(allUsers);
-
+	// setmynotes(mynote)
 	const user = console.log(mynote.experiences.review);
 
 	const handleChange = (e) => {
@@ -71,19 +73,20 @@ function Note({ allUsers }) {
 					count[num] = count[num] ? count[num] + 1 : 1;
 					newarr.push(count);
 				}
-				console.log(newarr)
+				console.log(newarr);
 
-				let sliceArr = newarr.splice(0,1)
-				console.log(sliceArr)
-				sliceArr.map(element => {
-					return console.log(element.value)
-				})
-				
+				let sliceArr = newarr.splice(0, 1);
+				console.log(sliceArr);
+				sliceArr.map((element) => {
+					return console.log(element.value);
+				});
 			})
 		);
 	};
 
 	console.log(cart);
+
+	// NEED HELP WITH REFRESH
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('submit');
@@ -100,9 +103,13 @@ function Note({ allUsers }) {
 				user: currentUser._id,
 				name: currentUser.name
 			})
-		}).then((res) => res.json());
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				mynote.experiences.push(data);
+			});
 	};
-
+	console.log(mynote.experiences);
 	console.log(comment);
 	console.log(star);
 	console.log(hover);
@@ -115,7 +122,10 @@ function Note({ allUsers }) {
 				<h4>
 					<strong>{`$${mynote.price}`}</strong>
 				</h4>
-				<Button onClick={handleClick}>ADD TO CART</Button>
+
+				<IconButton onClick={handleClick}>
+					<FontAwesomeIcon icon={[ 'fas', 'cart-plus' ]} />
+				</IconButton>
 				<div>
 					<h2>Reviews</h2>
 					{mynote.experiences.map((exp) => {

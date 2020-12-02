@@ -2,10 +2,12 @@ import React from 'react';
 import './NoteCard.css';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 function Edit({updateNote}) {
 	console.log("just got here")
 	const location = useLocation();
+	const history = useHistory()
 	const mynote = location.state.note;
 	console.log(mynote);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
@@ -30,7 +32,9 @@ function Edit({updateNote}) {
 	};
 	const handleSubmit = (e) => {
         e.preventDefault();
-        updateNote(note)
+		updateNote(note)
+		let path = '/'
+		history.push(path)
         console.log('THOUGH');
         
 	};

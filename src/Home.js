@@ -27,23 +27,25 @@ function Home() {
 		async function fetchData() {
 			const request = await axios.get('http://localhost:8000/notes');
 			setnotes(request.data);
+		
 		}
 		async function fetchUser() {
 			const request = await axios.get('http://localhost:8000/users');
 			setUsers(request.data);
+			
 		}
 		fetchData();
 		fetchUser();
 	}, []);
-	console.log(users);
-
+	// console.log(users);
+	console.log(notes)
 	const handleSearch = (e) => {
 		e.preventDefault();
 		console.log(e.target.value);
 		setSearch(e.target.value);
     };
-    
     const createNote = (newNote) => {
+		console.log(newNote)
 		fetch('http://localhost:8000/notes', {
 			method: 'POST',
 			headers: {
@@ -61,9 +63,11 @@ function Home() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setnotes(...notes, data);
+				setnotes([...notes, data])
 			});
 	};
+
+
 
 	const updateNote = (updatedNote) => {
 		console.log(updatedNote._id);
@@ -84,7 +88,8 @@ function Home() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				setnotes({ ...notes, data });
+				 const updateNote = notes.filter(note => note._id = data._id)
+				 setnotes(updateNote)
 			});
 	};
 
@@ -98,10 +103,12 @@ function Home() {
 		console.log(notes);
 		// })
 	};
-
+	console.log(notes)
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
+	
+	
 
 	const filterNotes = notes.filter((note) => {
 		return note.user.includes(user._id);
@@ -137,9 +144,11 @@ function Home() {
 						</Route>
 						<Route path="/">
 							<Search handleSearch={handleSearch} />
+							<br/>
 							<SideBar createNote={createNote} filterCategory={filterCategory} />
+							<br/>
 							<Subject/>
-							<Container notes={filterSearch} filterCategory={currentCategory} />
+							<Container notes={filterSearch} allnote={notes} filterCategory={currentCategory} />
 						</Route>
 					</Switch>
 					<Footer />

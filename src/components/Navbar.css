@@ -1,5 +1,42 @@
+
 .navbar{
     display: flex;
     justify-content: space-between;
+}
+.navbar h1 {
+    cursor: pointer;
+}
+.navbar__logo{
+    object-fit: contain;
+    height: 50px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+.navbar__center{
+    flex: 1 ;
+    padding-top:35px;
+    padding-left: 10px;
+    display: center;
+    /* this fits the conent center */
+    max-width: fit-content;
+    padding: 10px;
+    height: 30px;
+    /* border: 1px solid lightgray; */
+    border-radius: 999px;  
+}
+.navbar__icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+    margin-right: 80px;
+}
+.navbar__right{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+    margin-right: 80px;
 }
 

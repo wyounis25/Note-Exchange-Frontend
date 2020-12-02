@@ -1,12 +1,44 @@
 .sidebar{
-background-color: aqua;
 display: flex;
-justify-content: flex-start;
-height: 100%;
-width: 20%;
-color: white;
-flex: 0.3;
-background-color: var(--slack-color);
-border-top: 1px solid #49274b;
- max-width: 260px;
+justify-content: center;
+
+}
+
+.sidebar__new{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__new input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center; 
+}
+.sidebar__new input:focus {
+    outline-width: 0;
+}
+.sidebar__new input {
+    border: none;
+    padding: 10px;
+    height: 25px;
+    width: 175px;
+    border-radius: 25px;
+    margin-left: 10px;
+}
+.sidebarNew__button{
+    color: #0a043c !important;
+    font-weight : bold !important ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    font-size: 20px !important;
+    padding: 10px !important;
+    margin-left: 10px !important;
+    border-radius: 25px !important
+}
+.sidebar h1 {
+    cursor: pointer;
 }

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './SideBar.css';
 import axios from 'axios';
+import { faSlideshare } from '@fortawesome/free-brands-svg-icons';
+import { Button } from '@material-ui/core';
 
 function SideBar({ createNote, filterCategory }) {
-	const user = JSON.parse(localStorage.getItem('userInfo'))
-	const [select, setselect] = useState("")
-	const [price, setprice] = useState("")
+	const user = JSON.parse(localStorage.getItem('userInfo'));
+	 const [ add, setadd ] = useState(false);
+	const [ select, setselect ] = useState('');
+	const [ price, setprice ] = useState('');
 	const [ note, setNote ] = useState({
 		category: '',
 		label: '',
@@ -26,35 +29,47 @@ function SideBar({ createNote, filterCategory }) {
 		e.preventDefault();
 		console.log('THOUGH');
 		createNote(note);
-		
 	};
 
 	const handleSelect = (e) => {
-		setselect(e.target.value)
-		filterCategory(select)
-	}
-
+		setselect(e.target.value);
+		filterCategory(select);
+	};
+	const handleAdd = () => {
+		setadd(!add);
+	};
 	const handlePrice = (e) => {
-		e.preventDefault()
-		setprice(e.target.value)
-	}
+		e.preventDefault();
+		setprice(e.target.value);
+	};
 
-	console.log(price)
-	console.log(select)
+	console.log(price);
+	console.log(select);
 
 	return (
 		<div className="sidebar">
 			<div className="sidebar__new">
+				<h1 onClick={handleAdd}>SELL YOUR NOTES</h1>
 				<form onSubmit={handleSubmit}>
-					<input placeholder="Category" name="category" value={note.category} onChange={handleChange} />
-					<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
-					<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
-					<input type = "number" placeholder="$Price" name="price" value={note.price} onChange={handleChange} />
-					<button>Submit</button>
+				{add ? (
+					<>
+						<input placeholder="Category" name="category" value={note.category} onChange={handleChange} />
+						<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
+						<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
+						<input
+							type="number"
+							placeholder="$Price"
+							name="price"
+							value={note.price}
+							onChange={handleChange}
+						/>
+						<Button type="submit" className="sidebarNew__button">SUBMIT</Button>
+						</>
+						) : null}
 				</form>
 			</div>
-			<br/>
-			<div>
+			<br />
+			{/* <div>
 				<div className="sidebar__category">
 					<label>Category</label>
 					<select name="category" onChange={handleSelect}>
@@ -72,7 +87,7 @@ function SideBar({ createNote, filterCategory }) {
 						<option value="low">Low to High</option>
 					</select>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }

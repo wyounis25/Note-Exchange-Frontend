@@ -5,6 +5,7 @@ import Portal from './components/Portal';
 import Home from './Home';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 function App() {
 	const [ Category, setCategory ] = useState('');
@@ -12,7 +13,7 @@ function App() {
 	const [ users, setUsers ] = useState([]);
 	const [ token, setToken ] = useState('');
 	const [ search, setSearch ] = useState('');
-	library.add(fab)
+	library.add(fab,fas)
 	const loginSession = (currentUser) => {
 		fetch('http://localhost:8000/users/login', {
 			method: 'POST',

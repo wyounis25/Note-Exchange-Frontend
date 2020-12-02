@@ -4,10 +4,17 @@ import StarIcon from '@material-ui/icons/Star';
 import StarHalfIcon from '@material-ui/icons/StarHalf';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useHistory } from 'react-router-dom';
-function NoteCard({ note }) {
+function NoteCard({ note, allnote }) {
 	const history = useHistory();
 	const [ hover, sethover ] = useState(false);
+	let reviewCount;
+	console.log(
+		allnote.map((experience) => {
+			return (reviewCount = experience.experiences);
+		})
+	);
 
+	console.log(reviewCount);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const arr = note.experiences.map((exp) => {
 		return exp.rating;
@@ -29,34 +36,41 @@ function NoteCard({ note }) {
 		history.push(path, { note: note });
 	};
 	return (
-		<div
-			className="note"
-			// onMouseEnter={sethover(!hover)}
-			onClick={() => notePage(note._id)}
-		>
-			<h3>{note.category}</h3>
-			<h4>{note.label}</h4>
-			<p>{note.content}</p>
-			
-			<h2>
-				<strong>{`$${note.price}`}</strong>
-			</h2>
+		<div>
+			<div
+				className="note"
+				// onMouseEnter={sethover(!hover)}
+				onClick={() => notePage(note._id)}
+			>
+				<h3>{note.category}</h3>
+				<h4>{note.label}</h4>
+				<p>{note.content}</p>
 
-			<p>
-				{isNaN(ave) ? (
-					<div>
-						<p>0</p>
-						<StarBorderIcon />
-					</div>
-				) : (
-					<div className="note__star">
-						<p>
-							<StarIcon className="star" size="large" style={{ color: '#ffd369' }} />
-							<strong>{ave}</strong>
-						</p>
-					</div>
-				)}
-			</p>
+				<h2>
+					<strong>{`$${note.price}`}</strong>
+				</h2>
+
+				<p>
+					{isNaN(ave) ? (
+						<div className="note__reviews">
+							<StarBorderIcon />
+							<p>0</p>
+						</div>
+					) : (
+						<div className="note__reviews">
+							<p>
+								<StarIcon className="star" size="large" style={{ color: '#ffd369' }} />
+								<strong>{ave}</strong>
+							</p>
+						</div>
+					)}
+				</p>
+				<div className="note__star">
+					<p>(<strong>{note.experiences.length}</strong>)</p>
+					
+					<p>reviews</p>
+				</div>
+			</div>
 		</div>
 	);
 }
