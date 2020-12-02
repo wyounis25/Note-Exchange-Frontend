@@ -1,0 +1,12 @@
+.subject{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.subject__button {
+    font-weight : bold !important ;
+    background: #8db596!important;
+    opacity: 0.5
+}

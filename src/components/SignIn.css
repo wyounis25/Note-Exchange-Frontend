@@ -1,0 +1,35 @@
+.signin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signin__button{
+    font-weight : bold !important ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    font-size: 15px !important;
+    padding: 10px !important;
+    margin-left: 10px !important;
+    border-radius: 25px !important
+}
+.signin input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center; 
+}
+.signin input:focus {
+    outline-width: 0;
+}
+.signin input {
+    border: none;
+    padding: 10px;
+    height: 25px;
+    width: 175px;
+    border-radius: 25px;
+    margin-left: 10px;
+}
+
+

@@ -12,6 +12,7 @@ import Edit from './components/Edit';
 import Note from './components/Note';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/Checkout';
+import Subject from './Subject'
 
 function Home() {
     const [ Category, setCategory ] = useState('');
@@ -42,8 +43,6 @@ function Home() {
 		setSearch(e.target.value);
     };
     
-
-
     const createNote = (newNote) => {
 		fetch('http://localhost:8000/notes', {
 			method: 'POST',
@@ -139,6 +138,7 @@ function Home() {
 						<Route path="/">
 							<Search handleSearch={handleSearch} />
 							<SideBar createNote={createNote} filterCategory={filterCategory} />
+							<Subject/>
 							<Container notes={filterSearch} filterCategory={currentCategory} />
 						</Route>
 					</Switch>

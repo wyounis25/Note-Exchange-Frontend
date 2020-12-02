@@ -62,7 +62,7 @@ function App() {
 
 	return (
 		<div className="App">
-			{!user ? <Portal loginSession={loginSession} signUpSession={signUpSession} /> : <Home />}
+			{!user? <Portal loginSession={loginSession} signUpSession={signUpSession} /> : <Home />}
 			<Footer />
 		</div>
 	);

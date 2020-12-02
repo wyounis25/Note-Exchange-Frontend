@@ -37,9 +37,6 @@ curc.note__grid{
     transform: scale(1.05)
 }
 
-.star:hover {
-    
-}
 
 #rating_bar{
 	width:100px;
@@ -61,3 +58,18 @@ curc.note__grid{
 	color: #4bce32;
 
 }
+.note__star{
+    font-size: 20px;
+   display: flex; 
+   align-items: right;
+   justify-content: right;
+}
+
+.note h2 {
+  display: flex;  
+  justify-content: center;
+  align-self: flex-end;
+}
+/* .note__star > p > .MuiSvgIcon-root {
+   
+} */

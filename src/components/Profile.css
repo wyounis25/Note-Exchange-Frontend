@@ -1,0 +1,13 @@
+.portal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.portal hr {
+    border-top: 5px solid black;
+    width: 50%
+}

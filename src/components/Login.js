@@ -27,7 +27,6 @@ function Login({ loginSession }) {
 		e.preventDefault();
 		loginSession(userSession);
 	};
-
 	return (
 		<div className="login">
 			<form onSubmit={handleSubmit}>
@@ -45,7 +44,11 @@ function Login({ loginSession }) {
 					value={userSession.password}
 					onChange={handleChange}
 				/>
-				<Button type="submit" variant="contained">
+				<Button
+				className="login__button"
+				 type="submit" 
+				 variant="outlined" color="primary"
+				 >
 					LOGIN
 				</Button>
 			</form>

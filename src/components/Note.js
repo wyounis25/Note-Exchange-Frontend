@@ -135,7 +135,7 @@ function Note({ allUsers }) {
 								<label>
 									<input type="radio" name="rating" value={ratingvalue} />
 									<StarRoundedIcon
-										style={{ color: ratingvalue <= (hover || star) ? '#bedbbb' : '#eeeeee' }}
+										style={{ color: ratingvalue <= (hover || star) ? '#ffd369' : '#bbbbbb' }}
 										onClick={() => setstar(ratingvalue)}
 										onMouseEnter={() => sethover(ratingvalue)}
 										onMouseLeave={() => sethover(null)}

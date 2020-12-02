@@ -54,7 +54,11 @@ function SignIn({ signUpSession }) {
 					value={profile.password}
 					onChange={handleChange}
 				/>
-				<Button type="submit" variant="contained">
+				<Button
+				className="signin__button"
+				 type="submit" 
+				 variant="outlined" color="primary"
+				 >
 					SIGNUP
 				</Button>
 			</form>
