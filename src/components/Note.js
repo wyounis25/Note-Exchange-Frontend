@@ -7,10 +7,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 import ShoppingCart from './ShoppingCart';
 
-function Note({ notes, allUsers, updateExperience }) {
+function Note({updateCart, notes, allUsers, updateExperience }) {
 	const [ comment, setcomment ] = useState('');
-	const [ star, setstar ] = useState(null);
-	const [ hover, sethover ] = useState(null);
+	 const [ star, setstar ] = useState(null);
+	 const [ hover, sethover ] = useState(null);
+	const [Experience, setExperience] = useState( {
+		rating: null,
+		review: ""
+	})
+	console.log(Experience)
 	const [ cart, setcart ] = useState([]);
 
 	// const [mynotes, setmynotes] = useState([])
@@ -42,6 +47,9 @@ function Note({ notes, allUsers, updateExperience }) {
 	const allCarts = arrCarts.map((cart) => {
 		return (carts = cart);
 	});
+	const addCart = (cart) => {
+		updateCart(cart)
+	}
 
 	console.log(carts);
 	const handleClick = () => {
@@ -62,6 +70,7 @@ function Note({ notes, allUsers, updateExperience }) {
 		}).then((res) =>
 			res.json().then((data) => {
 				setcart(data);
+				addCart(data)
 				let notearr = data.carts.map((itm) => {
 					return itm.note;
 				});
@@ -89,31 +98,12 @@ function Note({ notes, allUsers, updateExperience }) {
 	// NEED HELP WITH REFRESH
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('submit');
-		fetch(`http://localhost:8000/notes/experiences/${mynote._id}`, {
-			method: 'PATCH',
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json',
-				Authorization: `Bearer ${currentUser.token}`
-			},
-			body: JSON.stringify({
-				rating: star,
-				review: comment,
-				user: currentUser._id,
-				name: currentUser.name
-			})
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				updateExperience(data);
-				console.log(data);
-			});
+		updateExperience(star,comment,mynote);
 	};
 
 	console.log(mynote.experiences);
-	console.log(comment);
-	console.log(star);
+	//console.log(comment);
+	//console.log(star);
 	console.log(hover);
 	return (
 		<div className="notes">
@@ -123,14 +113,14 @@ function Note({ notes, allUsers, updateExperience }) {
 				</div>
 				<h3 className="header">{mynote.category}</h3>
 				<h4>{mynote.label}</h4>
-				<p>{mynote.content}</p>
+				<img src={mynote.content}/>
 				<h4>
 					<strong>{`$${mynote.price}`}</strong>
 				</h4>
 
 			
 				
-				<form onSubmit={handleSubmit}>
+				<form onClick={handleSubmit}>
 					<div className="experience">
 
 				

@@ -15,16 +15,20 @@ function App() {
 	const [ search, setSearch ] = useState('');
 	library.add(fab,fas)
 	const loginSession = (currentUser) => {
+
 		fetch('http://localhost:8000/users/login', {
 			method: 'POST',
+
 			headers: {
 				'Content-Type': 'application/json',
 				Accept: 'application/json'
 			},
+
 			body: JSON.stringify({
 				username: currentUser.username,
 				password: currentUser.password
 			})
+
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -36,6 +40,7 @@ function App() {
 	};
 
 	const signUpSession = (currentUser) => {
+		console.log("we hit this")
 		fetch('http://localhost:8000/users', {
 			method: 'POST',
 			headers: {
@@ -51,13 +56,13 @@ function App() {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data);
+				console.log(data)
 				localStorage.setItem('userInfo', JSON.stringify(data));
 				localStorage.token = data.token;
 				console.log(localStorage.token);
 				setToken(localStorage.token);
-			});
-	};
+			})
+	}
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 
@@ -65,7 +70,8 @@ function App() {
 		<div className="App">
 			{!user? <Portal loginSession={loginSession} signUpSession={signUpSession} /> : <Home />}
 		</div>
-	);
+	)
+
 }
 
 export default App;

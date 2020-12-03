@@ -41,6 +41,7 @@ function ShoppingCart({ userCart }) {
 		console.log(total);
 		sum = total.reduce((a, b) => a + b, 0);
 	});
+	
 	console.log(unique.length);
 	return (
 		<>

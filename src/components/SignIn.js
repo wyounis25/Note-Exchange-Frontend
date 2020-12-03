@@ -25,10 +25,11 @@ function SignIn({ signUpSession }) {
 
 	console.log(profile);
 	const handleSignUp = (e) => {
-		e.preventDefault();
-		console.log('SIGNUP');
-		signUpSession(profile);
-	};
+		e.preventDefault()
+		console.log('SIGNUP')
+		signUpSession(profile)
+
+	}
 
 	return (
 		<div className="signin">

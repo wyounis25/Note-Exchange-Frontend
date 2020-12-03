@@ -44,12 +44,10 @@ function NoteCard({ note, allnote }) {
 			>
 				<h3>{note.category}</h3>
 				<h4>{note.label}</h4>
-				<p>{note.content}</p>
-
+				<img src={note.content}/>
 				<h2>
 					<strong>{`$${note.price}`}</strong>
 				</h2>
-
 				<p>
 					{isNaN(ave) ? (
 						<div className="note__reviews">

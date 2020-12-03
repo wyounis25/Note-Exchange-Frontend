@@ -8,7 +8,8 @@ import { Button } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import ShoppingCart from './ShoppingCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-function Navbar({userCart}) {
+
+function Navbar({userCart,handleLogout}) {
 	const [cart, setCart] = useState(true)
 	const history = useHistory();
 	const user = JSON.parse(localStorage.getItem('userInfo'));
@@ -18,13 +19,11 @@ function Navbar({userCart}) {
 	};
 
 	const handleSession = () => {
-		localStorage.clear();
-		let path = `/`;
-		history.push(path);
+		handleLogout()
 	};
 
 	const goHome = () => {
-		let path = `/home`;
+		let path = `/`;
 		history.push(path);
 	};
 

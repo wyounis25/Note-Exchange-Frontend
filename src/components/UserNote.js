@@ -15,14 +15,13 @@ const history = useHistory()
 		<div className="note">
 			<h3>{note.category}</h3>
 			<h4>{note.label}</h4>
-			<p>{note.content}</p>
+			<img src={note.content}/>
 			<h4>
 				<strong>{`$${note.price}`}</strong>
 			</h4>
 			<div>
-				<Button onClick={()=> handleDelete(note._id)} color="secondary">DELETE</Button>
-				
-				<Button onClick={()=>handleClick(note._id)} color="primary">EDIT</Button>
+				<Button className="delete" onClick={()=> handleDelete(note._id)}>DELETE</Button>
+				<Button className="edit" onClick={()=>handleClick(note._id)} >EDIT</Button>
 			</div>
 		</div>
 	);

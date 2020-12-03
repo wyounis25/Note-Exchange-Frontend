@@ -33,7 +33,7 @@
     /* text-align: center !important;  */
 }
 .edit{
-    background-color: #d9adad!important;
+    background-color: #f2d974!important;
     opacity: 0.5;
     margin: 10px;
     border-radius: 25px;
@@ -178,4 +178,41 @@ font-size: 20px;
     margin-left: auto;
     color:#494949 ;
     text-align: right !important;
+}
+.edit input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center; 
+}
+.edit input{
+    border: none;
+    font-size:25px;
+    height: 30px;
+    width: 200px;
+    border-radius: 25px;
+    border: none; 
+    /* border-bottom: 10px solid #e8e8e8;  */
+    /* border-radius: %; */
+}
+
+.edit > input:focus{
+    outline-width: 0;
+}
+.edit__btn {
+    color: #7d0633 !important;
+    font-weight : bold !important ;
+    font-size: 20px !important;
+
+} 
+.note img {
+    width: 200px;
+    height: 200px
+}
+.notes img {
+    width: 500px;
+    height: 400px 
+}
+.edited{
+    width: 200px;
+    height: 200px  
 }
