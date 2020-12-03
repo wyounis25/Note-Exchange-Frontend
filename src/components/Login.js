@@ -47,7 +47,7 @@ function Login({ loginSession }) {
 				<Button
 				className="login__button"
 				 type="submit" 
-				 variant="outlined" color="primary"
+				  color="primary"
 				 >
 					LOGIN
 				</Button>

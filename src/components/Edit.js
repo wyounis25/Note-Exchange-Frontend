@@ -49,7 +49,7 @@ function Edit({updateNote}) {
 				<button>Submit</button>
 			</form>
 
-			<div className="note">
+			<div className="">
 				<h3>{mynote.category}</h3>
 				<h4>{mynote.label}</h4>
 				<p>{mynote.content}</p>

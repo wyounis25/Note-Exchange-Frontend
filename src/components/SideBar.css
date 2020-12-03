@@ -21,10 +21,11 @@ justify-content: center;
 .sidebar__new input {
     border: none;
     padding: 10px;
-    height: 25px;
+    height: 15px;
     width: 175px;
     border-radius: 25px;
     margin-left: 10px;
+    font-size:20px;
 }
 .sidebarNew__button{
     color: #0a043c !important;
@@ -37,8 +38,9 @@ justify-content: center;
     font-size: 20px !important;
     padding: 10px !important;
     margin-left: 10px !important;
-    border-radius: 25px !important
+    border-radius: 25px !important;
+    font-family: 'Comfortaa', cursive !important;
 }
-.sidebar h1 {
+.sidebar h2 {
     cursor: pointer;
 }

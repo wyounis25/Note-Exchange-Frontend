@@ -2,9 +2,13 @@
 .navbar{
     display: flex;
     justify-content: space-between;
+    height: 100px;
+
 }
 .navbar h1 {
+   color: #111f4d;
     cursor: pointer;
+    font-size: 60px;
 }
 .navbar__logo{
     object-fit: contain;
@@ -12,31 +16,44 @@
     margin-left: 20px;
     padding-top: 20px;
 }
-.navbar__center{
-    flex: 1 ;
-    padding-top:35px;
+.navbar__center h1 {
+    text-size-adjust: 400%;
+    display: flex;
+justify-content: center;
+margin-left: 270px;
+padding-top:20px;
+     flex: 1 ;
     padding-left: 10px;
     display: center;
     /* this fits the conent center */
-    max-width: fit-content;
+    /* max-width: fit-content;
     padding: 10px;
-    height: 30px;
+    height: 30px; */
     /* border: 1px solid lightgray; */
-    border-radius: 999px;  
+    /* border-radius: 999px;   */ 
 }
 .navbar__icon{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    /* display: flex;
+    align-items: left;
+    justify-content: center; */
     width: 15vw;
-    margin-right: 80px;
+    margin-right: 20px;
 }
 .navbar__right{
-
+    height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 15vw;
-    margin-right: 80px;
+    /* justify-content: space-between; */
+    width: 0vw;
+
+    margin-right: 100px;
 }
 
+.navbar h4 {
+    font-family: 'Comfortaa', cursive;
+}
+.navbar__logout {
+    height: 50px;
+    font-family: 'Comfortaa', cursive !important;
+    font-weight : bold !important ;
+}

@@ -5,8 +5,11 @@
     flex-direction: row;
 }
 
-.subject__button {
+/* .subject__button {
     font-weight : bold !important ;
     background: #8db596!important;
     opacity: 0.5
+} */
+.q{
+    background: #74b49b !important
 }

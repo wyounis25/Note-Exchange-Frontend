@@ -15,7 +15,14 @@
     font-size: 15px !important;
     padding: 10px !important;
     margin-left: 10px !important;
-    border-radius: 25px !important
+    border-radius: 25px !important;
+    font-family: 'Comfortaa', cursive !important;
+    font-weight : bold !important ;
+}
+.login input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center; 
 }
 .login input::-webkit-input-placeholder {
     font-size: 20px;
@@ -27,6 +34,7 @@
 }
 
 .login input {
+    font-size: 25px;
     border: none;
     padding: 10px;
     height: 25px;

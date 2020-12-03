@@ -20,7 +20,7 @@ function Home() {
 	const [ users, setUsers ] = useState([]);
 	const [ token, setToken ] = useState('');
     const [ search, setSearch ] = useState('');
-    
+    const [currentReview, setcurrentReview] = useState([])
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
     useEffect(() => {
@@ -66,8 +66,13 @@ function Home() {
 				setnotes([...notes, data])
 			});
 	};
-
-
+	
+	let updatedReview
+	const updateExperience = (note) => {
+	updatedReview= notes.filter(data => data._id = note._id)
+		 setnotes(updatedReview)
+		 console.log(notes)
+	}
 
 	const updateNote = (updatedNote) => {
 		console.log(updatedNote._id);
@@ -134,7 +139,7 @@ function Home() {
 							<Edit updateNote={updateNote} />
 						</Route>
 						<Route path="/note/:id/">
-							<Note allUsers={users} />
+					<Note notes={notes} allUsers={users} updateExperience={updateExperience} />
 						</Route>
 						<Route path="/shoppingcart">
 							<ShoppingCart />

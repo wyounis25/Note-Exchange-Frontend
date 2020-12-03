@@ -56,19 +56,19 @@ function Payment({ sum, email, myCart }) {
 					<PayPalButton amount={sum} onSuccess={paymentHandler} />
 					{/* <FontAwesomeIcon icon={[ 'fab', 'paypal' ]}
 					 /> */}
-
-					<input type="radio" name="payment" />
-				</label>
-				<label>
-					<FontAwesomeIcon icon={[ 'fab', 'cc-visa' ]} />
-					<input type="radio" name="payment" />
-				</label>
-				<label>
-					<FontAwesomeIcon icon={[ 'fab', 'apple-pay' ]} />
-					<input type="radio" name="payment" />
 				</label>
 			</form>
-		</div>
+
+					</div>
+				// 	<input type="radio" name="payment" />
+				// </label>
+				// <label>
+				// 	<FontAwesomeIcon icon={[ 'fab', 'cc-visa' ]} />
+				// 	<input type="radio" name="payment" />
+				// </label>
+				// <label>
+				// 	<FontAwesomeIcon icon={[ 'fab', 'apple-pay' ]} />
+				// 	<input type="radio" name="payment" />
 	);
 }
 

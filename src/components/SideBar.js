@@ -49,7 +49,7 @@ function SideBar({ createNote, filterCategory }) {
 	return (
 		<div className="sidebar">
 			<div className="sidebar__new">
-				<h1 onClick={handleAdd}>SELL YOUR NOTES</h1>
+				<h2 onClick={handleAdd}>SELL YOUR NOTES</h2>
 				<form onSubmit={handleSubmit}>
 				{add ? (
 					<>

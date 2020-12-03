@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLocation } from 'react-router-dom';
 import ShoppingCart from './ShoppingCart';
 
-function Note({ allUsers }) {
+function Note({ notes, allUsers, updateExperience }) {
 	const [ comment, setcomment ] = useState('');
 	const [ star, setstar ] = useState(null);
 	const [ hover, sethover ] = useState(null);
@@ -18,8 +18,8 @@ function Note({ allUsers }) {
 	const location = useLocation();
 	const mynote = location.state.note;
 
-	console.log(mynote._id);
-
+	console.log(mynote);
+	console.log(notes);
 	console.log(allUsers);
 	// setmynotes(mynote)
 	const user = console.log(mynote.experiences.review);
@@ -85,7 +85,7 @@ function Note({ allUsers }) {
 	};
 
 	console.log(cart);
-
+	console.log(mynote);
 	// NEED HELP WITH REFRESH
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -106,57 +106,72 @@ function Note({ allUsers }) {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				mynote.experiences.push(data);
+				updateExperience(data);
+				console.log(data);
 			});
 	};
+
 	console.log(mynote.experiences);
 	console.log(comment);
 	console.log(star);
 	console.log(hover);
 	return (
 		<div className="notes">
-			<div className="note">
-				<h3>{mynote.category}</h3>
+			<div className="user__note">
+			<div className="add__cart">
+				<FontAwesomeIcon onClick={handleClick}  icon={[ 'fas', 'cart-plus' ]} />
+				</div>
+				<h3 className="header">{mynote.category}</h3>
 				<h4>{mynote.label}</h4>
 				<p>{mynote.content}</p>
 				<h4>
 					<strong>{`$${mynote.price}`}</strong>
 				</h4>
 
-				<IconButton onClick={handleClick}>
-					<FontAwesomeIcon icon={[ 'fas', 'cart-plus' ]} />
-				</IconButton>
-				<div>
-					<h2>Reviews</h2>
-					{mynote.experiences.map((exp) => {
+			
+				
+				<form onSubmit={handleSubmit}>
+					<div className="experience">
+
+				
+					<input className="user__comment" onChange={handleChange} />
+					</div>
+
+					{[ ...Array(5) ].map((star, i) => {
+						const ratingvalue = i + 1;
 						return (
-							<p>
-								{exp.name}:{exp.review}
-							</p>
+							<label>
+								<input className="radio__btn" type="radio" name="rating" value={ratingvalue} />
+								<StarRoundedIcon
+									style={{ color: ratingvalue <= (hover || star) ? '#ffd369' : '#bbbbbb' }}
+									onClick={() => setstar(ratingvalue)}
+									onMouseEnter={() => sethover(ratingvalue)}
+									onMouseLeave={() => sethover(null)}
+								/>
+							</label>
 						);
 					})}
-					<form onSubmit={handleSubmit}>
-						<h3>{currentUser.name}:</h3>
-						<input onChange={handleChange} />
 
-						{[ ...Array(5) ].map((star, i) => {
-							const ratingvalue = i + 1;
-							return (
-								<label>
-									<input type="radio" name="rating" value={ratingvalue} />
-									<StarRoundedIcon
-										style={{ color: ratingvalue <= (hover || star) ? '#ffd369' : '#bbbbbb' }}
-										onClick={() => setstar(ratingvalue)}
-										onMouseEnter={() => sethover(ratingvalue)}
-										onMouseLeave={() => sethover(null)}
-									/>
-								</label>
-							);
-						})}
+					<Button className="review__btn" type="submit">ENTER</Button>
+				</form>
+				
+			</div>
+			<div className="Review">
+				<h2>REVIEWS</h2>
+				{mynote.experiences.map((exp) => {
+					return (
+						<>
+							<p className="comments">
+							<strong>{exp.name}</strong>
+						</p>
+						<p className="users">
 
-						<button type="submit">ENTER</button>
-					</form>
-				</div>
+							{exp.review}
+						</p>
+						<hr/>
+							</>
+					);
+				})}
 			</div>
 		</div>
 	);

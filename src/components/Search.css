@@ -1,10 +1,15 @@
 .search{
     display: flex;
     justify-content: center;
-    
 }
-
-.serach__input{
+.search input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center; 
+}
+.search input{
+    border: none;
+    font-size:25px;
     height: 30px;
     width: 600px;
     border-radius: 25px;
@@ -16,3 +21,14 @@
 .search > input:focus{
     outline-width: 0;
 }
+
+
+
+
+
+
+
+
+
+
+

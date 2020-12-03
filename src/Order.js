@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import Payment from './Payment';
+import './Order.css';
+
 
 function Order({sum,myCart}) {
 	const [ email, setemail ] = useState('');
@@ -15,13 +17,16 @@ function Order({sum,myCart}) {
     //};
    
 	return (
-		<div>
-			<h3>BOUT TO ORDER</h3>
-			<p>WHATS YOUR EMAIL</p>
+		<div className="orderForm" >
+			<h3>STEP 1 OF 3</h3>
+			<br/>
+			<p>PLEASE PROVIDE A VALID EMAIL TO SEND THE NOTES</p>
+			<br/>
 			<form>
-				<input onChange={(e) => setemail(e.target.value)}/>
+				<input placeholder="email" onChange={(e) => setemail(e.target.value)}/>
 			</form>
-			<h3>PAYMENT METHOD</h3>
+			<br/>
+			<h3>STEP 3 OF 3</h3>
             {(email.includes('@') && email.includes('.com')) ?
              <Payment sum={sum} email={email} myCart={myCart}/> 
              : null}

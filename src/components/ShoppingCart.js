@@ -43,27 +43,21 @@ function ShoppingCart({ userCart }) {
 	});
 	console.log(unique.length);
 	return (
-		<div>
-			<div>
-				<h4>ITEMS</h4> :
+		<>
+			<div className="shopping">
+				<h5>ITEMS</h5> 
 				<p>
 					<strong>{unique.length}</strong>
 				</p>
-			</div>
-			<div>
-				<h4>SUBTOTAL</h4> :
+				<br/>
+				
+				<h5>SUBTOTAL</h5> 
 				<p><strong>{`$${sum}`}</strong></p>
+			<Button className="checkout" onClick={checkout}>CHECKOUT</Button>
 			</div>
-			{/* {unique.map((item) => {
-				return (
-					<p>
-						{item.label}:{item.price}
-					</p>
-				);
-			})} */}
-			<Button onClick={checkout}>CHECKOUT</Button>
-		</div>
-	);
+
+			</>
+	)
 }
 
 export default ShoppingCart;

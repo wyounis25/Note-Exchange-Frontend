@@ -13,7 +13,9 @@
     font-size: 15px !important;
     padding: 10px !important;
     margin-left: 10px !important;
-    border-radius: 25px !important
+    border-radius: 25px !important;
+    font-family: 'Comfortaa', cursive !important;
+    font-weight : bold !important ;
 }
 .signin input::-webkit-input-placeholder {
     font-size: 20px;
@@ -24,6 +26,7 @@
     outline-width: 0;
 }
 .signin input {
+    font-size: 25px;
     border: none;
     padding: 10px;
     height: 25px;

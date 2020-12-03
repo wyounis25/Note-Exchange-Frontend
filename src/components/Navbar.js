@@ -40,14 +40,15 @@ function Navbar({userCart}) {
 				
 
 		<div className="navbar__right">
-			<IconButton onClick={()=>setCart(!cart)} className="navbar__icon">
-				<FontAwesomeIcon icon={[ 'fas', 'shopping-cart' ]}/>
-			</IconButton>
+			 
+				<FontAwesomeIcon  onClick={()=>setCart(!cart)} className="navbar__icon"  icon={[ 'fas', 'shopping-cart' ]}/>
+			
 			{cart? null: <ShoppingCart userCart={userCart} />}
-			<Button onClick={handleSession} variant="outlined" color="secondary">
+		</div>
+
+			<Button className= "navbar__logout" onClick={handleSession}  color="secondary">
 				LOGOUT
 			</Button>
-		</div>
 		</div>
 	);
 }

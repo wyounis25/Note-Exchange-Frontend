@@ -1,0 +1,67 @@
+/* .purchase{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+*{
+    box-sizing: border-box;
+}
+
+.main{
+    display: flex;
+}
+
+.purchase__items{
+    margin: 15px;
+    max-width: 1000px;
+    border-radius: 25px;
+    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+    transition: transform 100ms ease-in;
+    cursor: pointer;
+    text-align: center;
+    align-items: left;
+    padding: 10px; 
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.purchase__items:hover{
+    transform: scale(1.05)
+}
+
+.purchase h2 {
+    background-color: #8db596;
+    margin: 15px;
+    width: 700px;
+    border-radius: 25px;
+    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+    transition: transform 100ms ease-in;
+    text-align: center;
+    padding: 10px; 
+    border: 1px solid rgba(0, 0, 0, 0.8); 
+}
+.Order{
+    width: 100%
+}
+.proceed__pay{
+    display: flex !important;
+    justify-content: center!important;
+    align-items: center!important;
+}
+.proceed{
+    font-size: 20px;
+    font-weight: bolder!important;
+    color: #335d2d!important
+} 
+.main h3 {
+    font-size: large!important;
+    display: flex !important;
+    justify-content: center!important;
+    align-items: center!important;
+    color: #111f4d;
+    font-size: 20px;
+    font-weight: bolder!important;
+}
+/* .main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+} */

@@ -4,7 +4,7 @@ import "./Search.css"
 function Search({handleSearch}) {
     return (
         <div className="search">
-            <input onChange={handleSearch} className="serach__input"></input>
+            <input placeholder = "SEARCH" onChange={handleSearch} className="serach__input"></input>
         </div>
     )
 }

@@ -57,7 +57,7 @@ function SignIn({ signUpSession }) {
 				<Button
 				className="signin__button"
 				 type="submit" 
-				 variant="outlined" color="primary"
+				 color="primary"
 				 >
 					SIGNUP
 				</Button>
