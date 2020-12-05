@@ -35,11 +35,11 @@ function Home() {
 			const request = await axios.get('http://localhost:8000/users');
 			setUsers(request.data);
 		}
-		// async function fetchTransaction() {
-		// 	const request = await axios.get('http://localhost:8000/transactions');
-		// 	transactions(request.data);
-		// }
-		// fetchTransaction()
+		async function fetchTransaction() {
+			const request = await axios.get('http://localhost:8000/transactions');
+			settransactions(request.data);
+		}
+		fetchTransaction();
 		fetchData();
 		fetchUser();
 	}, []);
@@ -125,7 +125,59 @@ function Home() {
 				setnotes(updateNote);
 			});
 	};
+	const dltItem = (transaction) => {
+		console.log(transactionss);
+		console.log(transaction);
+		fetch(`http://localhost:8000/users/${user._id}`, { method: 'DELETE' }).then(() => {
+			const getUser = users.filter((current) => {
+				return current._id.includes(user._id);
+			});
 
+			// let currentItems;
+			// getUser.map((cart) => {
+			// 	return (currentItems = cart.carts);
+			// });
+
+		//	let chosenItem = currentItems.filter((item) => item._id != transaction._id);
+			// console.log(getUser)
+
+			let newCart = [];
+			getUser.map((current) => {
+				current.carts.forEach((item) => {
+					if (item._id != transaction._id) {
+						newCart.push(item);
+					}
+					current.carts = newCart;
+					// console.log(current.carts)
+				});
+				return getUser;
+			});
+
+			//anu.patel@flatironschool.com
+			//console.log(currentItems);
+			//console.log(chosenItem);
+			console.log(getUser);
+			//console.log(newUser);
+
+			//console.log(newUser)
+			// const updateDel = users.carts.filter(((item) => item._id != transaction._id);
+			// settransactions(updateDel);
+			const newUser = users.filter(current => {
+
+				if (current === getUser) {
+					current = getUser
+				}
+				return users
+			})
+
+			console.log(getUser)
+			console.log(newUser)
+			setUsers(newUser)
+		});
+		
+	};
+	console.log(users)
+	
 	const handleDelete = (id) => {
 		console.log(id);
 		// setnotes({
@@ -157,15 +209,14 @@ function Home() {
 		}));
 	};
 	const handleLogout = () => {
-		localStorage.clear()
-		setUsers(null)
-	  }
+		localStorage.clear();
+		setUsers(null);
+	};
 	console.log(currentCategory);
 	return (
 		<Router>
-				
 			<div>
-				<Navbar userCart={users} handleLogout={handleLogout}/>
+				<Navbar userCart={users} handleLogout={handleLogout} />
 				<Switch>
 					<Route path="/profile/:id">
 						<Profile notes={filterNotes} handleDelete={handleDelete} />
@@ -185,7 +236,7 @@ function Home() {
 						<ShoppingCart />
 					</Route>
 					<Route path="/checkout">
-						<Checkout />
+						<Checkout dltItem={dltItem} />
 					</Route>
 					<Route path="/">
 						<Search handleSearch={handleSearch} />
@@ -198,7 +249,6 @@ function Home() {
 				</Switch>
 				<Footer />
 			</div>
-
 		</Router>
 	);
 }

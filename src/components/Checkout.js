@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 import Order from '../Order';
 import './Checkout.css';
 
-function Checkout() {
+function Checkout({dltItem}) {
 	const [ pay, setpay ] = useState(false);
 	const location = useLocation();
 	const myCart = location.state.unique;
@@ -19,6 +19,11 @@ function Checkout() {
 	const payRoute = () => {
 		setpay(!pay);
 	};
+
+	const handleDlt = (id) => {
+		console.log(id)
+		dltItem(id)
+	}
 	console.log(sum);
 	return (
 		<div className="main">
@@ -31,6 +36,7 @@ function Checkout() {
 								<strong>{item.label}</strong>
 							</p>
 							<p>{item.price}</p>
+							<Button onClick={()=>handleDlt(item)}>X</Button>
 						</div>
 					);
 				})}
