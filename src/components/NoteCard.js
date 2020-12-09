@@ -42,9 +42,9 @@ function NoteCard({ note, allnote }) {
 				// onMouseEnter={sethover(!hover)}
 				onClick={() => notePage(note._id)}
 			>
+				<img src={note.content}/>
 				<h3>{note.category}</h3>
 				<h4>{note.label}</h4>
-				<img src={note.content}/>
 				<h2>
 					<strong>{`$${note.price}`}</strong>
 				</h2>

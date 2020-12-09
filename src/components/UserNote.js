@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './NoteCard.css';
+import './UserNote.css';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const history = useHistory()
 	}
 
 	return (
-		<div className="note">
+		<div className="user__note">
 			<h3>{note.category}</h3>
 			<h4>{note.label}</h4>
 			<img src={note.content}/>

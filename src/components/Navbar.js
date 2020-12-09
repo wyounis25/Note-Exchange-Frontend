@@ -30,26 +30,35 @@ function Navbar({userCart,handleLogout}) {
 
 	return (
 		<div className="navbar">
+		{user?
 			<IconButton onClick={goToProfile} className="navbar__logo">
 				<h4>{user? user?.name : 'welcome'}</h4>
-				</IconButton>
+				</IconButton> : null
+			}
 			<div className="navbar__center">
 				<h1 onClick={goHome}>NOTE EXCHANGE</h1>
 			</div>
 				
 
-		<div className="navbar__right">
-			 
-				<FontAwesomeIcon  onClick={()=>setCart(!cart)} className="navbar__icon"  icon={[ 'fas', 'shopping-cart' ]}/>
+			 {user?
+			 <>
+			<div className="navbar__right">
+
+
+				<FontAwesomeIcon  onClick={()=>setCart(!cart)} className="navbar__icon"  icon={[ 'fas', 'cart-plus' ]}/>
 			
-			{cart? null: <ShoppingCart userCart={userCart} />}
-		</div>
+				{cart? null: <ShoppingCart userCart={userCart} />}
+			</div>
 
 			<Button className= "navbar__logout" onClick={handleSession}  color="secondary">
 				LOGOUT
 			</Button>
-		</div>
-	);
+			</> : null
+			 
+			}
+			
+			</div>
+			);
 }
 
 export default Navbar;

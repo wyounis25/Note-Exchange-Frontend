@@ -1,6 +1,7 @@
 .search{
     display: flex;
     justify-content: center;
+    
 }
 .search input::-webkit-input-placeholder {
     font-size: 20px;

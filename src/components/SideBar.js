@@ -30,11 +30,6 @@ function SideBar({ createNote, filterCategory }) {
 		console.log('THOUGH');
 		createNote(note);
 	};
-
-	const handleSelect = (e) => {
-		setselect(e.target.value);
-		filterCategory(select);
-	};
 	const handleAdd = () => {
 		setadd(!add);
 	};
@@ -53,9 +48,16 @@ function SideBar({ createNote, filterCategory }) {
 				<form onSubmit={handleSubmit}>
 				{add ? (
 					<>
-						<input placeholder="Category" name="category" value={note.category} onChange={handleChange} />
+					<label>Category</label>
+						<select  placeholder="Category" name="category" value={note.category} onChange={handleChange}>
+						<option value="science">Science</option>
+						<option value="math">Math</option>
+						<option value="history">History</option>
+						<option value="art">art</option>
+						<option value="finance">finance</option>
+						</select>
 						<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
-						<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
+						<input  placeholder="Content" name="content" value={note.content} onChange={handleChange} />
 						<input
 							type="number"
 							placeholder="$Price"
@@ -65,19 +67,11 @@ function SideBar({ createNote, filterCategory }) {
 						/>
 						<Button type="submit" className="sidebarNew__button">SUBMIT</Button>
 						</>
-						) : null}
+				) : null}
 				</form>
 			</div>
 			<br />
 			{/* <div>
-				<div className="sidebar__category">
-					<label>Category</label>
-					<select name="category" onChange={handleSelect}>
-						<option value="science" />
-						<option value="science">Science</option>
-						<option value="math">Math</option>
-						<option value="history">History</option>
-					</select>
 				</div>
 				<div className="sidebar__price">
 					<label>Price</label>

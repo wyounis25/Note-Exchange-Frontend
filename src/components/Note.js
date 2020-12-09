@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './NoteCard.css';
+import './Note.css';
 import { Button, createChainedFunction, IconButton } from '@material-ui/core';
 import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
@@ -67,6 +67,7 @@ function Note({updateCart, notes, allUsers, updateExperience }) {
 				price: mynote.price,
 				note: mynote._id
 			})
+			
 		}).then((res) =>
 			res.json().then((data) => {
 				setcart(data);
@@ -107,13 +108,13 @@ function Note({updateCart, notes, allUsers, updateExperience }) {
 	console.log(hover);
 	return (
 		<div className="notes">
-			<div className="user__note">
+			<div className="single__note">
 			<div className="add__cart">
 				<FontAwesomeIcon onClick={handleClick}  icon={[ 'fas', 'cart-plus' ]} />
 				</div>
-				<h3 className="header">{mynote.category}</h3>
-				<h4>{mynote.label}</h4>
 				<img src={mynote.content}/>
+				<h3 className="note__header">{mynote.category}</h3>
+				<h4>{mynote.label}</h4>
 				<h4>
 					<strong>{`$${mynote.price}`}</strong>
 				</h4>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './NoteCard.css';
+import './Edit.css';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
@@ -54,7 +54,7 @@ function Edit({updateNote}) {
 			<div >
 				<h3>{mynote.category}</h3>
 				<h4>{mynote.label}</h4>
-				<img className="edited" src={mynote.content}/>
+				<img className="edit__img" src={mynote.content}/>
 				<h4>
 					<strong>{`$${mynote.price}`}</strong>
 				</h4>

@@ -10,7 +10,9 @@
 .main{
     display: flex;
 }
-
+.dltbtn {
+    color: red !important
+}
 .purchase__items{
     margin: 15px;
     max-width: 1000px;

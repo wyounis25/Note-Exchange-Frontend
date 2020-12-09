@@ -169,10 +169,10 @@ function Home() {
 				}
 				return users
 			})
-
 			console.log(getUser)
 			console.log(newUser)
 			setUsers(newUser)
+
 		});
 		
 	};
@@ -202,17 +202,25 @@ function Home() {
 	const filterNotes = notes.filter((note) => {
 		return note.user.includes(user._id);
 	});
-	let currentCategory;
+	
 	const filterCategory = (newCategory) => {
-		return (currentCategory = notes.filter((note) => {
-			note.category.toLowerCase().includes(newCategory.toLowerCase());
-		}));
+		setCategory(newCategory)
 	};
+
+	const filterSelect = notes.filter(note => {
+		return note.category.toLowerCase().includes(Category.toLowerCase())
+	})
+
+	const resetFields =()=> {
+		setSearch("")
+		setCategory("")
+	}
+
 	const handleLogout = () => {
 		localStorage.clear();
 		setUsers(null);
 	};
-	console.log(currentCategory);
+	// console.log(currentCategory);
 	return (
 		<Router>
 			<div>
@@ -241,10 +249,10 @@ function Home() {
 					<Route path="/">
 						<Search handleSearch={handleSearch} />
 						<br />
-						<SideBar createNote={createNote} filterCategory={filterCategory} />
+						<SideBar createNote={createNote} />
 						<br />
-						<Subject />
-						<Container notes={filterSearch} allnote={notes} filterCategory={currentCategory} />
+						<Subject resetFields={resetFields} filterCategory={filterCategory} />
+						<Container notes={filterSearch} allnote={notes} filterSelect={filterSelect} />
 					</Route>
 				</Switch>
 				<Footer />

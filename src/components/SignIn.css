@@ -1,38 +1,49 @@
-.signin{
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+.input{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    border-bottom: 1px solid black !important;
+    width: 100%;
+    padding: 8px 0;
+    margin: 8px 0;
+    overflow: hidden;
+    /* justify-content: flex-start;; */
 }
 .signin__button{
-    font-weight : bold !important ;
+    font-family: 'Nunito', sans-serif!important;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100px;
     height: 50px;
     font-size: 15px !important;
-    padding: 10px !important;
     margin-left: 10px !important;
-    border-radius: 25px !important;
-    font-family: 'Comfortaa', cursive !important;
-    font-weight : bold !important ;
+    /* border:none; */
+    border-color: #515751!important;
+    color: #515751!important;
+    font-weight : bolder !important ;
 }
+
 .signin input::-webkit-input-placeholder {
     font-size: 20px;
-    line-height: 3;
-    text-align: center; 
+    line-height: 3; 
 }
+
 .signin input:focus {
     outline-width: 0;
 }
+
 .signin input {
     font-size: 25px;
-    border: none;
+    /* border-bottom: black; */
+    border:none;
     padding: 10px;
     height: 25px;
     width: 175px;
-    border-radius: 25px;
     margin-left: 10px;
+  
 }
 
 

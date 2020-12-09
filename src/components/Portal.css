@@ -1,9 +1,89 @@
-.signin{
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,300&display=swap');
+.main__portal{
+ display: flex;
+ height: 225vh;
+ background-color:#F5F9E9!important;
+
+}
+.portal{
+ background-color:#F5F9E9;
+ height: 100vh;
+ width: 50%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.header{
+    position: relative;
+    height: 225vh;
+    width: 50%;
+    background-color: #515751;
+}
+.main__header{
+    
+z-index: 2;
+position: fixed;
+/* display: flex; */
+top:375px;
+left:200px;
+/* justify-content: center;
+align-items: center; */
+}
+
+.header h2{
+font-family: 'Mali', cursive;
+color:#F5F9E9;
+
+position: absolute;
+top: 1000px;
+}
+.header p{
+font-weight: bolder;
+position: fixed;
+top:450px;
+left:140px;
+color:#F5F9E9;
+font-family: 'Mali', cursive;
+}
+.header ul {
+opacity: 0.2;
+color:#F5F9E9;
+position: absolute;
+top: 50px;
+list-style-type: none;
+}
+
+
+.user__portal{
+ 
+    position: fixed;
+    cursor: pointer;
+    padding: 100px;
+    background-color:white;
+    border-radius: 10px;
+    opacity: 1;
+    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+    transition: transform 100ms ease-in;
+}
+.user__portal:hover{
+    opacity: 1.0;
+    transform: scale(1.08);
+    background-color:white;
+}
+/* .signin {
     display: flex;
     justify-content: center;
 }
-
 .login{
     display: flex;
     justify-content: center;
+} */
+/* .title{
+    font-size: 60px;
 }
+.portal h3 {
+    color: black;
+}
+.portal h1 {
+    color: black;
+} */

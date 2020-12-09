@@ -1,22 +1,21 @@
 import React from 'react';
 import './Container.css';
 import NoteCard from './NoteCard';
-function Container({allnote, notes, filterCategory }) {
+function Container({ allnote, notes,filterSelect }) {
 	//  console.log(notes)
 
-	console.log(filterCategory);
+	console.log(filterSelect);
 	console.log(notes);
 	return (
 		<div className="container">
-			{notes ? filterCategory ? (
-				filterCategory.map((note) => {
-					return <NoteCard allnote={allnote}  note={note} />;
-				})
-			) : (
-				notes.map((note) => {
-					return <NoteCard allnote={allnote}   note={note} />;
-				})
-			) : null}
+			{filterSelect.length === 1? 
+			filterSelect.map((note) => {
+				return <NoteCard allnote={allnote} note={note} />;
+			}):
+			notes.map((note) => {
+				return <NoteCard allnote={allnote} note={note} />;
+			})
+		}
 		</div>
 	);
 }

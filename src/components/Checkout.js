@@ -35,8 +35,11 @@ function Checkout({dltItem}) {
 							<p>
 								<strong>{item.label}</strong>
 							</p>
+							{/* <p>
+								qty
+							</p> */}
 							<p>{item.price}</p>
-							<Button onClick={()=>handleDlt(item)}>X</Button>
+							<Button className ="dltbtn" onClick={()=>handleDlt(item)}>X</Button>
 						</div>
 					);
 				})}

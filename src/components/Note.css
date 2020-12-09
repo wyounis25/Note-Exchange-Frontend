@@ -1,0 +1,110 @@
+.single__note{
+    margin: 10px;
+    background-color: white!important;
+    /* background-color:white!important; */
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+    transition: transform 100ms ease-in;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px; 
+     /* background-color: rgba(255, 255, 255, 0.8);
+    width: 1000px;
+    padding: 20px;
+    font-size: 30px; */
+    /* text-align: center !important;  */
+}
+
+
+.single__note:hover{
+    transform: scale(1.05)
+}
+
+.single__note img {
+    width: 500px;
+    height: 400px 
+}
+
+.add__cart{
+    cursor: pointer;
+    font-size: 200% !important ;
+    text-align: left !important;
+}
+
+.header{
+    font-size: xx-large!important;
+    margin-top: 50;
+}
+.user__comment::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align-last:justify;
+}
+.user__comment{
+    border: none;
+    font-size:25px;
+    height: 75px;
+    width: 200px;
+    border-radius: 25px;
+
+    /* border: none; */
+    /* border-bottom: 10px solid #e8e8e8;  */
+    /* border-radius: %; */
+}
+.user__comment:focus{
+    outline-width: 0;
+}
+.radio__btn {
+    display: none;
+   
+ }
+ .review__btn{
+    font-weight : bold !important ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    font-size: 15px !important;
+    padding: 10px !important;
+    margin-left: 10px !important;
+    border-radius: 25px !important;
+    font-family: 'Do Hyeon', sans-serif;
+    font-weight : bold !important ; 
+}
+
+.Review{
+    background-color: #faf6e9!important;
+        margin-left: 400px;
+        border-radius: 10px;
+        box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+        transition: transform 100ms ease-in;
+        cursor: pointer;
+        text-align: center;
+        padding: 10px; 
+        border: 1px #606470;
+        max-width: 50%;
+        /* background-color: rgba(255, 255, 255, 0.8);
+        width: 1000px;
+        padding: 20px;
+        font-size: 30px;
+        text-align: center; */
+        
+    }
+    .Review h2 {
+        color: #111f4d; ;
+    }
+
+.users{
+    margin-left: auto;
+    color:#494949 ;
+    text-align: right !important;
+}
+
+    .comments{
+        font-weight: bolder !important;
+        margin-left: auto;
+        color: #111f4d;
+       
+        text-align: left !important;
+}

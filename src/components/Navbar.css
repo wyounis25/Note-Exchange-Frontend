@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 .navbar{
     display: flex;
     justify-content: space-between;
     height: 100px;
+    
 
 }
 .navbar h1 {
@@ -50,10 +52,10 @@ padding-top:20px;
 }
 
 .navbar h4 {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Do Hyeon', sans-serif;
 }
 .navbar__logout {
     height: 50px;
-    font-family: 'Comfortaa', cursive !important;
+    font-family: 'Do Hyeon', sans-serif;
     font-weight : bold !important ;
 }

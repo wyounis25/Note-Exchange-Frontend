@@ -1,23 +1,33 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 .login{
+
+}
+.input{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    border-bottom: 1px solid black !important;
+    width: 100%;
+    padding: 8px 0;
+    margin: 8px 0;
+    overflow: hidden;
+   
+    /* align-items: center;
+    justify-content: center; */
 }
 .login__button{
-    font-weight : bold !important ;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: 'Nunito', sans-serif!important;
+    display: flex!important;
+    align-items: center!important;
+    justify-content: center!important;
     width: 100px;
     height: 50px;
     font-size: 15px !important;
     padding: 10px !important;
-    margin-left: 10px !important;
-    border-radius: 25px !important;
-    font-family: 'Comfortaa', cursive !important;
-    font-weight : bold !important ;
+    margin-left: 40px !important;
+    color: #515751!important;
+    font-weight : bolder !important ;
+    border-color: #515751!important;
+
 }
 .login input::-webkit-input-placeholder {
     font-size: 20px;
@@ -39,6 +49,5 @@
     padding: 10px;
     height: 25px;
     width: 150px;
-    border-radius: 25px;
     margin-left: 10px;
 }
