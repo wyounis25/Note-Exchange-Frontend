@@ -17,7 +17,7 @@
     margin: 15px;
     max-width: 1000px;
     background-color: white!important;
-    border-radius: 25px;
+    border-radius: 10px;
     box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
     transition: transform 100ms ease-in;
     cursor: pointer;
@@ -35,7 +35,7 @@
     color:#F5F9E9;
     margin: 15px;
     width: 700px;
-    border-radius: 25px;
+    border-radius: 10px;
     transition: transform 100ms ease-in;
     text-align: center;
     padding: 10px; 
