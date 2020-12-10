@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 .subject__main{
+    font-family: 'Nunito', sans-serif!important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,7 +8,9 @@
     
 }
 .MuiButton-root{
-    padding: 15px;
+    font-weight: bolder!important;
+    font-family: 'Nunito', sans-serif!important;
+    margin: 5px !important;
 }
 .subject__all{
     font-size: 20px !important;

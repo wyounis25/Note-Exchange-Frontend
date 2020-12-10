@@ -1,19 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
 .sidebar{
 display: flex;
 justify-content: center;
 
 
-}
 
+}
 .sidebar__new{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+.sidebar__notes{
+    border-bottom: 1px solid black !important;
+}
 .sidebar__new input::-webkit-input-placeholder {
     font-size: 20px;
     line-height: 3;
@@ -43,8 +44,10 @@ justify-content: center;
     padding: 10px !important;
     margin-left: 10px !important;
     border-radius: 25px !important;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Nunito', sans-serif !important;
 }
 .sidebar h2 {
+    margin: 8px;
     cursor: pointer;
+    color: #515751;
 }

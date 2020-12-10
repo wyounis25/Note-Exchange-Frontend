@@ -40,3 +40,10 @@ display: flex;
     justify-content: center;
     align-items: center;
 }
+.order__paypal{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

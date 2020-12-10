@@ -1,32 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
 .navbar{
+    position: relative;
     display: flex;
-    justify-content: space-between;
     height: 100px;
-    
-
+    width: 100%;
+    justify-content: space-between;
 }
 .navbar h1 {
-   color: #111f4d;
+    font-family: 'Nunito', sans-serif;
+    color: #515751;
     cursor: pointer;
     font-size: 60px;
 }
 .navbar__logo{
-    object-fit: contain;
     height: 50px;
     margin-left: 20px;
     padding-top: 20px;
+    color: #515751 !important;
+}
+.navbar__center{
+    position: absolute;
+    left: 550px;
+    display: flex;
+    justify-content: center;
+
+
+
 }
 .navbar__center h1 {
-    text-size-adjust: 400%;
+    /* text-size-adjust: 400%;
     display: flex;
 justify-content: center;
 margin-left: 270px;
 padding-top:20px;
      flex: 1 ;
     padding-left: 10px;
-    display: center;
+    display: center; */
     /* this fits the conent center */
     /* max-width: fit-content;
     padding: 10px;
@@ -38,8 +48,18 @@ padding-top:20px;
     /* display: flex;
     align-items: left;
     justify-content: center; */
+    position:absolute;
+    right: 400px;
     width: 15vw;
     margin-right: 20px;
+    color: #515751 !important;
+    font-size: 150% !important ;
+
+}
+.navbar__cart{
+    position: absolute;
+    right: 350px;
+    bottom: 110px;
 }
 .navbar__right{
     height: 50px;
@@ -47,15 +67,15 @@ padding-top:20px;
     align-items: center;
     /* justify-content: space-between; */
     width: 0vw;
-
-    margin-right: 100px;
+   
 }
 
 .navbar h4 {
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 .navbar__logout {
+   color: #550C18 !important;
     height: 50px;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Nunito', sans-serif!important;
     font-weight : bold !important ;
 }

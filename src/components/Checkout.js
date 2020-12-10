@@ -38,7 +38,7 @@ function Checkout({dltItem}) {
 							{/* <p>
 								qty
 							</p> */}
-							<p>{item.price}</p>
+							<p>{`$${item.price}`}</p>
 							<Button className ="dltbtn" onClick={()=>handleDlt(item)}>X</Button>
 						</div>
 					);
@@ -49,7 +49,7 @@ function Checkout({dltItem}) {
 				</h2>
 				<div className="proceed__pay">
 
-					<Button className="proceed"  onClick={payRoute}> PROCEED TO PAYMENT</Button>
+					<Button variant="outlined" className="proceed"  onClick={payRoute}> PROCEED TO PAYMENT</Button>
 				</div>
 			
 			</div>

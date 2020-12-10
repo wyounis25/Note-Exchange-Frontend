@@ -3,8 +3,7 @@ import { Button } from '@material-ui/core';
 import Payment from './Payment';
 import './Order.css';
 
-
-function Order({sum,myCart}) {
+function Order({ sum, myCart }) {
 	const [ email, setemail ] = useState('');
 	console.log(email);
 
@@ -14,22 +13,24 @@ function Order({sum,myCart}) {
 	// 	} else {
 	// 		setemail('');
 	// 	}
-    //};
-   
+	//};
+
 	return (
-		<div className="orderForm" >
-			<h3>STEP 1 OF 3</h3>
-			<br/>
+		<div className="orderForm">
+			<h3>STEP 2 OF 3</h3>
+			<br />
 			<p>PLEASE PROVIDE A VALID EMAIL TO SEND THE NOTES</p>
-			<br/>
+			<br />
 			<form>
-				<input placeholder="email" onChange={(e) => setemail(e.target.value)}/>
+				<input placeholder="email" onChange={(e) => setemail(e.target.value)} />
 			</form>
-			<br/>
+			<br />
 			<h3>STEP 3 OF 3</h3>
-            {(email.includes('@') && email.includes('.com')) ?
-             <Payment sum={sum} email={email} myCart={myCart}/> 
-             : null}
+			{email.includes('@') && email.includes('.com') ? (
+				<div className="order__paypal">
+					<Payment sum={sum} email={email} myCart={myCart} />
+				</div>
+			) : null}
 		</div>
 	);
 }

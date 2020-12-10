@@ -1,4 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+.notes{
+    display: flex;
+    flex-direction: column;
+    padding:  0 25%;
+    font-family: 'Nunito', sans-serif!important;
+
+}
+.notes h3{
+font-family: 'Nunito', sans-serif!important;
+
+}
+.notes h4{
+font-family: 'Nunito', sans-serif!important;
+
+}
 .single__note{
+    font-family: 'Nunito', sans-serif!important;
     margin: 10px;
     background-color: white!important;
     /* background-color:white!important; */
@@ -6,13 +23,15 @@
     box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
     transition: transform 100ms ease-in;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding: 10px; 
-     /* background-color: rgba(255, 255, 255, 0.8);
-    width: 1000px;
-    padding: 20px;
-    font-size: 30px; */
-    /* text-align: center !important;  */
+    align-items: center;
+    justify-content: center;
+    size: 500px!important;
+    
+    font-size: 30px; 
+    text-align: center !important; 
 }
 
 
@@ -21,11 +40,12 @@
 }
 
 .single__note img {
-    width: 500px;
-    height: 400px 
+    width: 700px;
+    height: 750px 
 }
 
 .add__cart{
+    color: #515751 !important;
     cursor: pointer;
     font-size: 200% !important ;
     text-align: left !important;
@@ -41,11 +61,11 @@
     text-align-last:justify;
 }
 .user__comment{
-    border: none;
+    border: 1px solid black;
     font-size:25px;
     height: 75px;
     width: 200px;
-    border-radius: 25px;
+    border-radius: 10px;
 
     /* border: none; */
     /* border-bottom: 10px solid #e8e8e8;  */
@@ -69,13 +89,12 @@
     padding: 10px !important;
     margin-left: 10px !important;
     border-radius: 25px !important;
-    font-family: 'Do Hyeon', sans-serif;
+    font-family: 'Nunito', sans-serif!important;
     font-weight : bold !important ; 
 }
 
 .Review{
     background-color: #faf6e9!important;
-        margin-left: 400px;
         border-radius: 10px;
         box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
         transition: transform 100ms ease-in;
@@ -83,7 +102,7 @@
         text-align: center;
         padding: 10px; 
         border: 1px #606470;
-        max-width: 50%;
+        max-width: 100%;
         /* background-color: rgba(255, 255, 255, 0.8);
         width: 1000px;
         padding: 20px;

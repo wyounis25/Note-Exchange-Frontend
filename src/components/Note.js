@@ -111,7 +111,7 @@ function Note({updateCart, notes, allUsers, updateExperience }) {
 			<div className="single__note">
 			<div className="add__cart">
 				<FontAwesomeIcon onClick={handleClick}  icon={[ 'fas', 'cart-plus' ]} />
-				</div>
+			</div>
 				<img src={mynote.content}/>
 				<h3 className="note__header">{mynote.category}</h3>
 				<h4>{mynote.label}</h4>

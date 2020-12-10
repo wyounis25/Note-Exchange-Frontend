@@ -44,7 +44,6 @@ function ShoppingCart({ userCart }) {
 	
 	console.log(unique.length);
 	return (
-		<>
 			<div className="shopping">
 				<h5>ITEMS</h5> 
 				<p>
@@ -54,10 +53,8 @@ function ShoppingCart({ userCart }) {
 				
 				<h5>SUBTOTAL</h5> 
 				<p><strong>{`$${sum}`}</strong></p>
-			<Button className="checkout" onClick={checkout}>CHECKOUT</Button>
+			<Button variant="outlined" className="checkout" onClick={checkout}>CHECKOUT</Button>
 			</div>
-
-			</>
 	)
 }
 

@@ -1,4 +1,5 @@
-.portal {
+
+/* .portal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,4 +11,9 @@
 .portal hr {
     border-top: 5px solid black;
     width: 50%
+} */
+
+.profile{
+    display: grid;
+    grid-template-columns: auto auto   ;
 }

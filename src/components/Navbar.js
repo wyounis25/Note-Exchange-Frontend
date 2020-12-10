@@ -47,7 +47,9 @@ function Navbar({userCart,handleLogout}) {
 
 				<FontAwesomeIcon  onClick={()=>setCart(!cart)} className="navbar__icon"  icon={[ 'fas', 'cart-plus' ]}/>
 			
-				{cart? null: <ShoppingCart userCart={userCart} />}
+				{cart? null: <div className="navbar__cart">
+					<ShoppingCart userCart={userCart} />
+				</div> }
 			</div>
 
 			<Button className= "navbar__logout" onClick={handleSession}  color="secondary">
