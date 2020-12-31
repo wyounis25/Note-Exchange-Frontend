@@ -261,7 +261,7 @@ function Home() {
 						<Container sortBy={price} notes={filterSearch} allnote={notes} filterSelect={filterSelect} />
 					</Route>
 				</Switch>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		</Router>
 	);

@@ -1,7 +1,15 @@
+.body{
+    overflow-x: scroll;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
 .container{
-    display: grid;
-    grid-template-columns: auto auto auto auto   ;
-    padding: 1px;
+   display: grid;
+   /* flex-direction: column; */
+    grid-template-columns: auto auto auto auto ;
     /* background-color: #2196F3; */
 }
+
 

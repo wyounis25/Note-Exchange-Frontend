@@ -36,15 +36,14 @@ function NoteCard({ note, allnote }) {
 		history.push(path, { note: note });
 	};
 	return (
-		<div>
-			<div
-				className="note"
-				// onMouseEnter={sethover(!hover)}
-				onClick={() => notePage(note._id)}
-			>
+		<div className="note">
+			<div className="note__content"	onClick={() => notePage(note._id)}>
+
 				<img src={note.content}/>
+			</div>
+			<div className="note__info">
 				<h3>{note.category}</h3>
-				<h4>{note.label}</h4>
+				<h5>{note.label}</h5>
 				<h2>
 					<strong>{`$${note.price}`}</strong>
 				</h2>
@@ -64,11 +63,11 @@ function NoteCard({ note, allnote }) {
 					)}
 				</p>
 				<div className="note__star">
-					<p>(<strong>{note.experiences.length}</strong>)</p>
+					<p><strong>{note.experiences.length}</strong></p>
 					
 					<p>reviews</p>
 				</div>
-			</div>
+				</div>
 		</div>
 	);
 }
