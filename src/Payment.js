@@ -42,7 +42,6 @@ function Payment({ sum, email, myCart }) {
 				amount: sum,
 				email: email,
 				notes: myCart,
-				// label: myCart.label
 			})
 		}).then(res => res.json()).then(data => console.log(data))
 
@@ -60,15 +59,6 @@ function Payment({ sum, email, myCart }) {
 			</form>
 
 					</div>
-				// 	<input type="radio" name="payment" />
-				// </label>
-				// <label>
-				// 	<FontAwesomeIcon icon={[ 'fab', 'cc-visa' ]} />
-				// 	<input type="radio" name="payment" />
-				// </label>
-				// <label>
-				// 	<FontAwesomeIcon icon={[ 'fab', 'apple-pay' ]} />
-				// 	<input type="radio" name="payment" />
 	);
 }
 

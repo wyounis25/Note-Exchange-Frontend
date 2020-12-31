@@ -1,17 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    overflow-y: scroll;
+
+}
+body::-webkit-scrollbar {
+    display: none;
+}
 .main__portal{
  display: flex;
  height: 225vh;
- background-color:#F5F9E9!important;
-
+ background-color:#515751!important;
 }
+
 .portal{
- background-color:#F5F9E9;
+ background-color:#515751;
  height: 100vh;
- width: 50%;
  display: flex;
  justify-content: center;
  align-items: center;
+ margin-left: 300px;
 }
 .header{
     position: relative;
@@ -20,70 +29,75 @@
     background-color: #515751;
 }
 .main__header{
-    
+color: #272727;
+font-size:5vw;
 z-index: 2;
 position: fixed;
 /* display: flex; */
-top:375px;
-left:200px;
+top:50px;
+left:50px;
 /* justify-content: center;
 align-items: center; */
+font-family: 'Poppins', sans-serif;
+object-fit: cover;
+color: #F5F9E9;
+object-fit: contain;
+/* background-color:#515751; */
+/* box-shadow: 0 4px 2px -2px #515751; */
+/* box-shadow: 0px 0px 18px -10px rgba(0,0,0,0.75); */
+/* border-radius: 25px; */
+
+/* width: 50%; */
 }
 
 .header h2{
 font-family: 'Mali', cursive;
 color:#F5F9E9;
+position: fixed;
+top: 1200px;
 
-position: absolute;
-top: 1000px;
+
 }
 .header p{
+font-size:2vw;
 font-weight: bolder;
 position: fixed;
-top:450px;
-left:140px;
-color:#F5F9E9;
+top:270px;
+left:70px;
+color:#DADED4;
 font-family: 'Mali', cursive;
+/* font-size: 30px; */
+object-fit: cover;
+width: 80%;
 }
 .header ul {
+ font-size:2vw;
 opacity: 0.2;
-color:#F5F9E9;
+color:#DADED4;
 position: absolute;
-top: 50px;
+top: 268px;
+left: 200px;
 list-style-type: none;
 }
 
 
 .user__portal{
- 
     position: fixed;
     cursor: pointer;
-    padding: 100px;
+    padding: 40px;
+    height: 80vh;
+    width: 50vh;
     background-color:white;
-    border-radius: 10px;
+    border-radius: 30px;
     opacity: 1;
-    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
-    transition: transform 100ms ease-in;
+    border: 20px solid #515751;
+    /* box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75); */
+    /* transition: transform 100ms ease-in; */
 }
-.user__portal:hover{
-    opacity: 1.0;
-    transform: scale(1.08);
-    background-color:white;
+
+.user__portal h2 {
+font-size: 3vh;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-/* .signin {
-    display: flex;
-    justify-content: center;
-}
-.login{
-    display: flex;
-    justify-content: center;
-} */
-/* .title{
-    font-size: 60px;
-}
-.portal h3 {
-    color: black;
-}
-.portal h1 {
-    color: black;
-} */

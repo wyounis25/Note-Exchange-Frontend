@@ -24,6 +24,7 @@ function Home() {
 	const [ search, setSearch ] = useState('');
 	const [ currentReview, setcurrentReview ] = useState();
 	const [ newCart, setnewCart ] = useState([]);
+	const [ price, setprice ] = useState(false);
 
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 	useEffect(() => {
@@ -44,14 +45,14 @@ function Home() {
 		fetchUser();
 	}, []);
 	// console.log(users);
-	console.log(notes);
+	// console.log(notes);
 	const handleSearch = (e) => {
 		e.preventDefault();
-		console.log(e.target.value);
+		// console.log(e.target.value);
 		setSearch(e.target.value);
 	};
 	const createNote = (newNote) => {
-		console.log(newNote);
+		// console.log(newNote);
 		fetch('http://localhost:8000/notes', {
 			method: 'POST',
 			headers: {
@@ -138,7 +139,7 @@ function Home() {
 			// 	return (currentItems = cart.carts);
 			// });
 
-		//	let chosenItem = currentItems.filter((item) => item._id != transaction._id);
+			//	let chosenItem = currentItems.filter((item) => item._id != transaction._id);
 			// console.log(getUser)
 
 			let newCart = [];
@@ -162,22 +163,19 @@ function Home() {
 			//console.log(newUser)
 			// const updateDel = users.carts.filter(((item) => item._id != transaction._id);
 			// settransactions(updateDel);
-			const newUser = users.filter(current => {
-
+			const newUser = users.filter((current) => {
 				if (current === getUser) {
-					current = getUser
+					current = getUser;
 				}
-				return users
-			})
-			console.log(getUser)
-			console.log(newUser)
-			setUsers(newUser)
-
+				return users;
+			});
+			console.log(getUser);
+			console.log(newUser);
+			setUsers(newUser);
 		});
-		
 	};
-	console.log(users)
-	
+	console.log(users);
+
 	const handleDelete = (id) => {
 		console.log(id);
 		// setnotes({
@@ -188,7 +186,7 @@ function Home() {
 		console.log(notes);
 		// })
 	};
-	console.log(notes);
+	// console.log(notes);
 	const filterSearch = notes.filter((note) => {
 		return note.label.toLowerCase().includes(search.toLowerCase());
 	});
@@ -199,22 +197,30 @@ function Home() {
 
 	// const addedNewCart = transitions.filter(transaction => transaction._id = transactionss._id)
 
+	const handlePrice = () => {
+		setprice(!price);
+	};
+
+	console.log(price);
+
+	
+
 	const filterNotes = notes.filter((note) => {
 		return note.user.includes(user._id);
 	});
-	
+
 	const filterCategory = (newCategory) => {
-		setCategory(newCategory)
+		setCategory(newCategory);
 	};
 
-	const filterSelect = notes.filter(note => {
-		return note.category.toLowerCase().includes(Category.toLowerCase())
-	})
+	const filterSelect = notes.filter((note) => {
+		return note.category.toLowerCase().includes(Category.toLowerCase());
+	});
 
-	const resetFields =()=> {
-		setSearch("")
-		setCategory("")
-	}
+	const resetFields = () => {
+		setSearch('');
+		setCategory('');
+	};
 
 	const handleLogout = () => {
 		localStorage.clear();
@@ -251,8 +257,8 @@ function Home() {
 						<br />
 						<SideBar createNote={createNote} />
 						<br />
-						<Subject resetFields={resetFields} filterCategory={filterCategory} />
-						<Container notes={filterSearch} allnote={notes} filterSelect={filterSelect} />
+						<Subject setPrice={handlePrice} resetFields={resetFields} filterCategory={filterCategory} allnote={notes}/>
+						<Container sortBy={price} notes={filterSearch} allnote={notes} filterSelect={filterSelect} />
 					</Route>
 				</Switch>
 				<Footer />

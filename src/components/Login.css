@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
 .login{
-
+    height: 20vh;
+    width: 30vh;
 }
 
 .input{
     display: flex;
-    border-bottom: 1px solid black !important;
+    border-bottom: 10px solid pink ;
     width: 100%;
     padding: 8px 0;
     margin: 8px 0;
     overflow: hidden;
-   
     /* align-items: center;
     justify-content: center; */
 }
@@ -20,11 +20,11 @@
     display: flex!important;
     align-items: center!important;
     justify-content: center!important;
-    width: 100px;
-    height: 50px;
+    width: 2vh;
+    height: 5vh;
+    left: 11.6vh!important;
     font-size: 15px !important;
     padding: 10px !important;
-    margin-left: 40px !important;
     color: #515751!important;
     font-weight : bolder !important ;
     border-color: #515751!important;

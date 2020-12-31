@@ -36,11 +36,11 @@ function Navbar({userCart,handleLogout}) {
 				</IconButton> : null
 			}
 			<div className="navbar__center">
-				<h1 onClick={goHome}>NOTE EXCHANGE</h1>
+				<h1 onClick={goHome}>Note Exchange</h1>
 			</div>
 				
 
-			 {user?
+			
 			 <>
 			<div className="navbar__right">
 
@@ -55,9 +55,9 @@ function Navbar({userCart,handleLogout}) {
 			<Button className= "navbar__logout" onClick={handleSession}  color="secondary">
 				LOGOUT
 			</Button>
-			</> : null
+			</> 
 			 
-			}
+			
 			
 			</div>
 			);

@@ -9,19 +9,21 @@
 }
 .navbar h1 {
     font-family: 'Nunito', sans-serif;
-    color: #515751;
+    color: #F5F9E9;
     cursor: pointer;
-    font-size: 60px;
+    /* font-size: 80px; */
+    font-size: 10vh;
+    right: 40px;
 }
 .navbar__logo{
     height: 50px;
     margin-left: 20px;
     padding-top: 20px;
-    color: #515751 !important;
+    color: #F5F9E9 !important;
 }
 .navbar__center{
     position: absolute;
-    left: 550px;
+    left: 400px;
     display: flex;
     justify-content: center;
 
@@ -51,14 +53,16 @@ padding-top:20px;
     position:absolute;
     right: 400px;
     width: 15vw;
-    margin-right: 20px;
-    color: #515751 !important;
+    margin-left: 50px;
+    color: #F5F9E9 !important;
     font-size: 150% !important ;
+    background-color: black;
 
 }
 .navbar__cart{
+    z-index: 999;
     position: absolute;
-    right: 350px;
+    right: 300px;
     bottom: 110px;
 }
 .navbar__right{
@@ -66,7 +70,8 @@ padding-top:20px;
     display: flex;
     align-items: center;
     /* justify-content: space-between; */
-    width: 0vw;
+    width: 100vh;
+    /* background-color: black; */
    
 }
 

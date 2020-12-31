@@ -71,8 +71,9 @@ console.log(label)
 						<option value="science">Science</option>
 						<option value="math">Math</option>
 						<option value="history">History</option>
-						<option value="art">art</option>
-						<option value="finance">finance</option>
+						<option value="art">Art</option>
+						<option value="finance">Finance</option>
+						<option value="economics">Economics</option>
 						</select>
 						<input placeholder="Label" name="label" value={note.label} onChange={handleChange} />
 						<input placeholder="Content" name="content" value={note.content} onChange={handleChange} />
