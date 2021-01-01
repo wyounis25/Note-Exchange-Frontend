@@ -84,9 +84,10 @@ list-style-type: none;
 .user__portal{
     position: fixed;
     cursor: pointer;
+    margin-left: 50px;
     padding: 40px;
-    height: 80vh;
-    width: 50vh;
+    height: 70vh;
+    width: 45vh;
     background-color:white;
     border-radius: 30px;
     opacity: 1;
