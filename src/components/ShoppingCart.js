@@ -2,7 +2,8 @@ import React from 'react';
 import './ShoppingCart.css';
 import { Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
-function ShoppingCart({ userCart }) {
+
+function ShoppingCart({ userCart,closeCart }) {
 	const history = useHistory();
 	console.log(userCart);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
@@ -17,22 +18,26 @@ function ShoppingCart({ userCart }) {
 	const items = currentCart.map((cart) => {
 		return (item = cart);
 	});
-
 	const cartMap = {};
 	const unique = item.filter((item, _) => {
 		let alreadyExists = cartMap.hasOwnProperty(item.note);
 		return alreadyExists ? false : (cartMap[item.note] = 1);
 	});
-
 	console.log(currentCart);
 	console.log(currentUser);
 	console.log(items);
 	console.log(item);
 	console.log(unique);
+
+
 	const checkout = () => {
 		const path = '/checkout';
 		history.push(path, { unique: unique });
+		closeCart()
 	};
+
+
+
 	let sum;
 	let total = []
 	unique.map((price) => {

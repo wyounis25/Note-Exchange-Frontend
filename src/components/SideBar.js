@@ -49,8 +49,8 @@ function SideBar({ createNote, filterCategory }) {
     setadd(!add)
     if (!add) {
 	  title.innerText = 'CLOSE'
-	   title.style.color="#f32144"
-    } else {
+    title.style.color="#F5F9E9"
+      } else {
 	  title.innerText = 'SELL YOUR NOTES'
 	  title.style.color="#F5F9E9"
 

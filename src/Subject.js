@@ -3,8 +3,9 @@ import './Subject.css';
 import { Button } from '@material-ui/core';
 function Subject({ filterCategory, resetFields, setPrice }) {
 	const [ cat, setCat ] = useState('');
-
+	const [Order, setOrder] = useState(true)
 	const handlePrice = () => {
+		setOrder(!Order)
 		setPrice()
 	}
 	
@@ -31,58 +32,105 @@ function Subject({ filterCategory, resetFields, setPrice }) {
 					<option value ="high">High to Low</option>
 					<option value ="low">Low to High</option>
 				</select> */}
-				<Button onClick={handlePrice}>
-					PRICE
-				</Button>
-			{/* </div> */}
 
+
+
+				<div className="subject__standard">
+					
+				{/* <Button onClick={handlePrice}>
+					PRICE
+				</Button> */}
+			{/* </div> */}
+		
 			<Button
 				type="submit"
-				className="subject__all"
-				variant="outlined"
+				id="subject__all"
+			
 				name="all"
 				value="all"
 				onClick={resetFields}
 			>
 				ALL
 			</Button>
+				</div>
+				<div className="subject__scroll">
 			<Button
 				type="submit"
 				className="subject__math"
-				variant="outlined"
+			
 				name="math"
 				value="math"
 				onClick={handleChange}
 			>
 				MATH
 			</Button>
+			<hr/>
 			<Button
 				className="subject__science"
-				variant="outlined"
+				
 				name="science"
 				value="science"
 				onClick={handleChange}
 			>
 				SCIENCE{' '}
 			</Button>
-			<Button className="subject__history" variant="outlined" value="history" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__history" value="history" onClick={handleChange}>
 				HISTORY
 			</Button>
-			<Button className="subject__art" variant="outlined" value="art" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__art"  value="art" onClick={handleChange}>
 				ART
 			</Button>
-			<Button className="subject__economics" variant="outlined" value="economics" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__economics" value="economics" onClick={handleChange}>
 				ECONOMICS
 			</Button>
-			<Button className="subject__finance" variant="outlined" value="finance" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__finance" value="finance" onClick={handleChange}>
 				FINANCE
 			</Button>
-			<Button className="subject__engineering" variant="outlined" value="engineering" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__engineering" value="engineering" onClick={handleChange}>
 				ENGINEERING
 			</Button>
-			<Button className="subject__physics" variant="outlined" value="physics" onClick={handleChange}>
+			<hr/>
+			<Button className="subject__physics" value="physics" onClick={handleChange}>
 				PHYSICS
 			</Button>
+			<hr/>
+			<Button className="subject__english" value="physics" onClick={handleChange}>
+				ENGLISH
+			</Button>
+			<hr/>
+			<Button className="subject__accounting" value="physics" onClick={handleChange}>
+				ACCOUNTING
+			</Button>
+			<hr/>
+			<Button className="subject__psycology" value="physics" onClick={handleChange}>
+				PSYCOLOGY
+			</Button>
+			<hr/>
+			<Button className="subject__robotics" value="physics" onClick={handleChange}>
+				ROBOTICS
+			</Button>
+			<hr/>
+			<Button className="subject__spanish" value="physics" onClick={handleChange}>
+				SPANISH
+			</Button>
+			<hr/>
+			<Button className="subject__geology" value="physics" onClick={handleChange}>
+				GEOLOGY
+			</Button>
+		
+		
+			
+		
+		
+	
+			
+			
+				</div>
 		</div>
 	);
 }

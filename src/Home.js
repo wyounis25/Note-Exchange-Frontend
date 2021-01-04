@@ -208,7 +208,7 @@ function Home() {
   const updateCart = (cart) => {
     setnewCart(cart)
   }
-
+console.log(search)
   // const addedNewCart = transitions.filter(transaction => transaction._id = transactionss._id)
 
   const handlePrice = () => {

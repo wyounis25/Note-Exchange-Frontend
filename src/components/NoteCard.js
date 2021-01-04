@@ -8,13 +8,13 @@ function NoteCard({ note, allnote }) {
 	const history = useHistory();
 	const [ hover, sethover ] = useState(false);
 	let reviewCount;
-	console.log(
-		allnote.map((experience) => {
-			return (reviewCount = experience.experiences);
-		})
-	);
+	// console.log(
+	// 	allnote.map((experience) => {
+	// 		return (reviewCount = experience.experiences);
+	// 	})
+	// );
 
-	console.log(reviewCount);
+	// console.log(reviewCount);
 	const user = JSON.parse(localStorage.getItem('userInfo'));
 	const arr = note.experiences.map((exp) => {
 		return exp.rating;
@@ -25,11 +25,11 @@ function NoteCard({ note, allnote }) {
 			return a + b;
 		});
 	}
-	console.log(arr);
-	console.log(sum);
+	// console.log(arr);
+	// console.log(sum);
 
 	const ave = (sum / arr.length).toFixed(1);
-	console.log(ave);
+	// console.log(ave);
 
 	const notePage = (id) => {
 		let path = `/note/${id}`;

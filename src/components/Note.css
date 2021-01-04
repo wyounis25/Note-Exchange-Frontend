@@ -12,6 +12,7 @@ height: 100vh;
 
 
 }
+
 .notes h3{
 font-family: 'Nunito', sans-serif!important;
 
@@ -22,7 +23,6 @@ font-family: 'Nunito', sans-serif!important;
 }
 .single__note{
     background-color: #F5F9E9!important;
-
     border-radius: 10px;
     cursor: pointer;
     display: flex;

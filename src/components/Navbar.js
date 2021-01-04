@@ -26,6 +26,9 @@ function Navbar({ userCart, handleLogout }) {
     let path = `/`
     history.push(path)
   }
+  const closeCart = () =>{
+    setCart(!cart)
+  }
 
   return (
     <div className="navbar">
@@ -50,7 +53,7 @@ function Navbar({ userCart, handleLogout }) {
 
 	  
         <div className="navbar__cart">
-          {cart ? null : <ShoppingCart userCart={userCart} />}
+          {cart ? null : <ShoppingCart closeCart={closeCart} userCart={userCart} />}
         </div>
 
       <Button

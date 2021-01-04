@@ -17,11 +17,12 @@
     /* text-align: center !important;  */
     width: 300px;
     height: 400px;
+    border: 1px solid black 
 }
 
 
 .note:hover{
-    box-shadow: 0px 6px 18px -2px white;
+box-shadow: 0px 6px 18px -2px white;
 }
 
 .note__reviews{
@@ -34,8 +35,9 @@ margin-left: 10px;
 .note__info{
     display: flex;
     flex-direction: column;
-    background-color: #F5F9E9;
+    background-color: #515751;
     border-radius: 10px;
+    color: #F5F9E9;
 
 }
 .note__star{

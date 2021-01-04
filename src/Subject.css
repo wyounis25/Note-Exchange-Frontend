@@ -1,69 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 .subject__main{
     font-family: 'Nunito', sans-serif!important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 10px;
-    
+    background-color: #F5F9E9;;
+    /* border: 2px solid #faf6e9; */
+    border-radius: 30px;
+    display: flex;
+ 
+}
+.subject__scroll::-webkit-scrollbar{
+    display: none;
+}
+.subject__standard{
+    display: flex;
+    background-color: #515751;
+        border-radius: 30px;
+}
+.subject__scroll{
+    display: flex;    
+    overflow-y:hidden;
+    overflow-x: scroll;
+    object-fit: contain;
+  
 }
 .MuiButton-root{
     font-weight: bolder!important;
     font-family: 'Nunito', sans-serif!important;
     margin: 5px !important;
+    margin-left: 10px !important;
+    margin-right: 10px!important;
 }
-.subject__all{
-    font-size: 20px !important;
-    color:#6DA34D !important;
-    border-color:#6DA34D !important
+#subject__all{
+    margin: 10px;
+    width: fit-content!important;
+    /* font-size: 20px !important; */
+    color:#F5F9E9 !important;
+    border-color:#6DA34D !important;
+  
 
 }
 .subject__math{
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
+    margin: 10px;
 
     color:#56445D !important;
     border-color:#56445D !important
 }
 .subject__science{
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
 
     color:#548687 !important;
     border-color:#548687 !important
 }
 .subject__history{
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
+    margin: 10px;
 
     color:#56445D !important;
     border-color:#56445D !important
 }
 .subject__art{
-    font-size: 20px !important;
+    /* font-size: 20px !important; */
+    margin: 10px;
 
     color:#8FBC94 !important;
     border-color:#8FBC94 !important
 }
-.subject__finance{
-    font-size: 20px !important;
+.subject__english{
+    margin: 10px;
 
     color:#E6B89C !important;
     border-color:#E6B89C !important
 }
-.subject__economics{
-    font-size: 20px !important;
+.subject__accounting{
+    margin: 10px;
+    margin-left: 20px!important;
+    margin-right: 20px!important;
+    color:#0FA3B1 !important;
+}
+.subject__psycology{
+    margin: 10px;
+    margin-left: 20px!important;
+    margin-right: 20px!important;
+    color:#F7A072 !important;
+}
+.subject__robotics{
+    margin: 10px;
 
+    color:#377771 !important;
+  }
+.subject__spanish{
+    margin: 10px;
+
+    color:#772D8B !important;
+}
+.subject__geology{
+    margin: 10px;
+
+    color:#A1EF8B !important;
+}
+.subject__economics{
+    /* font-size: 20px !important; */
+    margin-left: 20px!important;
+    margin-right: 20px!important;
     color:#75B9BE !important;
     border-color:#75B9BE !important
 }
 .subject__engineering{
-    font-size: 20px !important;
-
+    /* max-width:  200px !important; */
+    /* width: 100px !important; */
+    /* font-size: 20px !important; */
+    margin-left: 20px!important;
+    margin-right: 20px!important;
     color:#E396DF !important;
     border-color:#E396DF !important
 }
-
 .subject__physics{
-    font-size: 20px !important;
-
+    width: fit-content!important;
+    /* font-size: 20px !important; */
     color:#2D3047 !important;
-    border-color:#2D3047 !important
+    border-color:#2D3047 !important;
+    size: 100px !important;
+   
 }
