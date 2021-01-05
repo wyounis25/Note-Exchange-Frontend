@@ -3,33 +3,38 @@ import './SideBar.css'
 import axios from 'axios'
 import { faSlideshare, faSupple } from '@fortawesome/free-brands-svg-icons'
 import { Button } from '@material-ui/core'
+import Input from '@material-ui/core/Input';
 
 function SideBar({ createNote, filterCategory }) {
-  const user = JSON.parse(localStorage.getItem('userInfo'))
+  let user = JSON.parse(localStorage.getItem('userInfo'))
   const [add, setadd] = useState(false)
   const [select, setselect] = useState('')
   const [category, setcategory] = useState('')
   const [label, setlabel] = useState('')
-  const [fileName, setfileName] = useState('')
+  const [fileName, setfileName] = useState("")
   const [price, setprice] = useState(0)
+ 
+    if(user){
+      user = ""
+    }
+
   const [note, setNote] = useState({
     category: '',
     label: '',
-    content: '',
+    content: "",
     price: 0,
     user: user._id,
   })
+
   const handlefile = (e) => {
-    var image = e.target.value.split('fakepath')
-    let newImage = image[1]
-    console.log(image)
-    console.log(newImage)
     console.log(e.target.files[0])
     setfileName(e.target.files[0].name)
+    console.log(fileName)
     setNote({
       ...note,
       content: fileName,
     })
+
     console.log(note.content)
   }
 
@@ -37,6 +42,7 @@ function SideBar({ createNote, filterCategory }) {
     e.preventDefault()
     setNote({ ...note, [e.target.name]: e.target.value })
   }
+  
 
   console.log(note)
   const handleSubmit = (e) => {
@@ -46,14 +52,17 @@ function SideBar({ createNote, filterCategory }) {
   }
   const handleAdd = () => {
     const title = document.getElementById('sidebar__title')
+    const header = document.getElementById("sidebar__header")
+    console.log(header)
     setadd(!add)
     if (!add) {
-	  title.innerText = 'CLOSE'
-    title.style.color="#F5F9E9"
-      } else {
-	  title.innerText = 'SELL YOUR NOTES'
-	  title.style.color="#F5F9E9"
-
+      title.innerText = 'CLOSE'
+      title.style.color = '#7c9473'
+      header.style.backgroundColor = "white"
+    } else {
+      title.innerText = 'SELL YOUR NOTES'
+      title.style.color = 'white'
+      header.style.backgroundColor = "#cfdac8"
     }
   }
   const handlePrice = (e) => {
@@ -61,19 +70,20 @@ function SideBar({ createNote, filterCategory }) {
     setprice(e.target.value)
   }
   console.log(category)
-  console.log(fileName)
-  console.log(label)
+  console.log(note.fileName)
+  console.log(note.label)
   return (
     <div className="sidebar">
-        <h2 id="sidebar__title" onClick={handleAdd}>
-          SELL YOUR NOTES
-        </h2>
-        <br />
       <div className="sidebar__new">
+        <div id="sidebar__header">
+      <h2 id="sidebar__title" onClick={handleAdd}>
+        SELL YOUR NOTES
+      </h2>
+        </div>
+      <br />
         <form onSubmit={handleSubmit}>
           {add ? (
             <div className="sidebar__notes">
-				<label>"</label>
               <select
                 placeholder="Category"
                 name="category"
@@ -95,18 +105,18 @@ function SideBar({ createNote, filterCategory }) {
                 onChange={handleChange}
               />
               <input
-                placeholder="Content"
-                name="content"
-                value={note.content}
-                onChange={handleChange}
-              />
-              <input
                 type="number"
                 placeholder="$Price"
                 name="price"
                 value={note.price}
                 onChange={handleChange}
               />
+                <input
+                  placeholder="Content"
+                  name="content"
+                  value={note.content}
+                  onChange={handleChange}
+                />
               <Button type="submit" className="sidebarNew__button">
                 SUBMIT
               </Button>

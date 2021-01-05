@@ -6,7 +6,7 @@
 }
 .input{
     display: flex;
-    border-bottom: 1px solid #515751 !important;
+    border-bottom: 1px solid white !important;
     width: 100%;
     padding: 8px 0;
     margin: 8px 0;
@@ -18,16 +18,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 50px;
-    font-size: 15px !important;
-    width: 5vh!important;
+    font-size: 1.9vh !important;
+    width: 15vh!important;
     height: 6.5vh!important;
-    left: 11.6vh!important;
+    left: 6vh!important;
     /* border:none; */
-    border-color: #515751!important;
-    color: #515751!important;
+    border-color: white!important;
+    color: white!important;
     font-weight : bolder !important ;
+}
+.signin__button:hover{
+background-color: white!important;
+color: #7c9473!important;
+
 
 }
 
@@ -42,7 +45,6 @@
 
 .signin input {
     font-size: 25px;
-    /* border-bottom: black; */
     border:none;
     padding: 10px;
     height: 25px;

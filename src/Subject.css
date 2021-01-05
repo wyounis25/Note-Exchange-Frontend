@@ -2,19 +2,20 @@
 .subject__main{
     font-family: 'Nunito', sans-serif!important;
     padding: 10px;
-    background-color: #F5F9E9;;
-    /* border: 2px solid #faf6e9; */
-    border-radius: 30px;
+    background-color: white;;
+    /* border: 1px solid #7c9473; */
+    border-radius: 5px;
     display: flex;
- 
+     box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+
 }
 .subject__scroll::-webkit-scrollbar{
     display: none;
 }
 .subject__standard{
     display: flex;
-    background-color: #515751;
-        border-radius: 30px;
+    background-color: #cfdac8;
+        border-radius: 5px;
 }
 .subject__scroll{
     display: flex;    
@@ -34,7 +35,7 @@
     margin: 10px;
     width: fit-content!important;
     /* font-size: 20px !important; */
-    color:#F5F9E9 !important;
+    color:#7c9473 !important;
     border-color:#6DA34D !important;
   
 

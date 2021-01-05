@@ -1,6 +1,6 @@
 
 .shopping{
-    background-color: #F5F9E9;
+    background-color: #7c9473;
     position: fixed;
     height: 175px;
     width: 150px;
@@ -10,7 +10,7 @@
 }
 .shopping p {
     font-weight : bold !important ;
-    color:#515751;
+    color:white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +18,7 @@
 
 .shopping h5 {
     font-weight : bold !important ;
-    color:#515751;
+    color:white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,11 +26,17 @@
 
 .checkout{
     display: flex;
-    right: 7px;
+    right:1.8vh;
     align-items: center;
     justify-content: center;
-    color: #515751!important;
+    color: white!important;
     font-weight : bold !important ;
     font-size: 15px !important;
+    border: 1px solid white!important;
+
     /* color: #456268 !important; */
+}
+.checkout:hover{
+background-color: white!important;
+color: #7c9473!important;
 }

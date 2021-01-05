@@ -7,41 +7,52 @@
 
 .input{
     display: flex;
-    border-bottom: 10px solid pink ;
     width: 100%;
     padding: 8px 0;
     margin: 8px 0;
     overflow: hidden;
-    /* align-items: center;
-    justify-content: center; */
+    color: white;
+    ;
+}
+.input > input{
+background-color: #7c9473;
+color: white;
+
+;
 }
 .login__button{
     font-family: 'Nunito', sans-serif!important;
     display: flex!important;
     align-items: center!important;
     justify-content: center!important;
-    width: 2vh;
-    height: 5vh;
-    left: 11.6vh!important;
-    font-size: 15px !important;
+    font-size: 1.9vh !important;
+    width: 15vh!important;
+    height: 6.5vh!important;
+    left: 6vh!important;
     padding: 10px !important;
-    color: #515751!important;
+    border-color: white!important;
+    color: white!important;
     font-weight : bolder !important ;
-    border-color: #515751!important;
 
 }
-.login input::-webkit-input-placeholder {
+.login__button:hover{
+    background-color: white!important;
+    color: #7c9473!important;
+    
+    
+    }
+::-webkit-input-placeholder {
     font-size: 20px;
     line-height: 3;
     text-align: center; 
+    color: white;
+
 }
-.login input::-webkit-input-placeholder {
-    font-size: 20px;
-    line-height: 3;
-    text-align: center; 
-}
+
 .login input:focus {
     outline-width: 0;
+    color: white;
+
 }
 
 .login input {
@@ -51,4 +62,5 @@
     height: 25px;
     width: 150px;
     margin-left: 10px;
+   color: white;
 }

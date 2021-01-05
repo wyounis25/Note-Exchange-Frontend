@@ -13,7 +13,7 @@
 width: 45vw;
 border-radius: 15px;
 height: 30vh;
-background-color: #F5F9E9!important;
+background-color: #7c9473!important;
     cursor: pointer;
     text-align: center;
 }
@@ -27,6 +27,15 @@ background-color: #F5F9E9!important;
     color:#550C18!important;
     font-weight : bold !important ;
     font-size: 2vh !important;
+}
+.user__delete:hover{
+    border: white!important;
+    background-color: white!important;
+}
+.user__edit:hover{
+    border: white!important;
+
+    background-color: white!important;
 }
 .user__note img {
     width: 25vh;

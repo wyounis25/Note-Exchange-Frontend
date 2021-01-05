@@ -17,15 +17,20 @@ function Navbar({ userCart, handleLogout }) {
     let path = `/profile/${user._id}`
     history.push(path)
   }
-
+  console.log(user)
   const handleSession = () => {
+    let path = '/'
     handleLogout()
+    console.log(user)
+    if(user===null) history.push(path)
+
   }
 
   const goHome = () => {
     let path = `/`
     history.push(path)
   }
+
   const closeCart = () =>{
     setCart(!cart)
   }
@@ -34,7 +39,10 @@ function Navbar({ userCart, handleLogout }) {
     <div className="navbar">
       <div className="navbar__logo">
         <IconButton onClick={goToProfile}>
-          <h4> {user.name}</h4>
+          {user === null?
+          <h4> welcome</h4>
+          :<h4> {user.name}</h4>
+        }
         </IconButton>
       </div>
 

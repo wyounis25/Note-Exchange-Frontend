@@ -4,6 +4,7 @@ import Search from './components/Search'
 import SideBar from './components/SideBar'
 import Container from './components/Container'
 import Footer from './components/Footer'
+import './Home.css'
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,7 +21,7 @@ import ShoppingCart from './components/ShoppingCart'
 import Checkout from './components/Checkout'
 import Subject from './Subject'
 import { set } from 'mongoose'
-import App from './App'
+import App from '../src/App'
 
 function Home() {
   const history = useHistory()
@@ -51,7 +52,7 @@ function Home() {
     fetchTransaction()
     fetchData()
     fetchUser()
-  }, [])
+  }, [user])
   // console.log(users);
   // console.log(notes);
   const handleSearch = (e) => {
@@ -187,7 +188,6 @@ function Home() {
     )
   }
   console.log(users)
-
   const handleDelete = (id) => {
     console.log(id)
     // setnotes({
@@ -208,7 +208,7 @@ function Home() {
   const updateCart = (cart) => {
     setnewCart(cart)
   }
-console.log(search)
+  console.log(search)
   // const addedNewCart = transitions.filter(transaction => transaction._id = transactionss._id)
 
   const handlePrice = () => {
@@ -239,60 +239,62 @@ console.log(search)
 
   const handleLogout = () => {
     localStorage.clear()
-	setUsers(null)
-	
   }
-
+console.log(users)
   // console.log(currentCategory);
   return (
     <Router>
       <div>
-		  <Navbar userCart={users} handleLogout={handleLogout} />
-		  <Switch>
-			<Route path="/profile/:id">
-			  <Profile notes={filterNotes} handleDelete={handleDelete} />
-			</Route>
-			<Route path="/edit/:id">
-			  <Edit updateNote={updateNote} />
-			</Route>
-			<Route path="/note/:id/">
-			  <Note
-				updateCart={updateCart}
-				notes={notes}
-				allUsers={users}
-				updateExperience={updateExperience}
-			  />
-			</Route>
-			<Route path="/shoppingcart">
-			  <ShoppingCart />
-			</Route>
-			<Route path="/checkout">
-			  <Checkout dltItem={dltItem} />
-			</Route>
-			<Route path="/welcome">
-			  <App />
-			</Route>
-			<Route path="/">
-			  <Search handleSearch={handleSearch} />
-			  <br />
-			  <SideBar createNote={createNote} />
-			  <br />
-			  <Subject
-				setPrice={handlePrice}
-				resetFields={resetFields}
-				filterCategory={filterCategory}
-				allnote={notes}
-			  />
-			  <Container
-				sortBy={price}
-				notes={filterSearch}
-				allnote={notes}
-				filterSelect={filterSelect}
-			  />
-			</Route>
-		  </Switch>
-		  {/* <Footer /> */}
-	
+       
+        <Switch>
+          <Route path="/profile/:id">
+            <Profile notes={filterNotes} handleDelete={handleDelete} />
+          </Route>
+          <Route path="/edit/:id">
+            <Edit updateNote={updateNote} />
+          </Route>
+          <Route path="/note/:id/">
+            <Note
+              updateCart={updateCart}
+              notes={notes}
+              allUsers={users}
+              updateExperience={updateExperience}
+            />
+          </Route>
+          <Route path="/shoppingcart">
+            <ShoppingCart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout dltItem={dltItem} />
+          </Route>
+          {/* <Route path="/portal">
+            <Portal/>
+          </Route> */}
+          {user?
+          <Route path="/">
+             <div id="home__header">
+          <Navbar userCart={users} handleLogout={handleLogout} />
+        </div>
+            <Search handleSearch={handleSearch} />
+            <br />
+            <SideBar createNote={createNote} />
+            <br />
+            <Subject
+              setPrice={handlePrice}
+              resetFields={resetFields}
+              filterCategory={filterCategory}
+              allnote={notes}
+            />
+            <Container
+              sortBy={price}
+              notes={filterSearch}
+              allnote={notes}
+              filterSelect={filterSelect}
+            />
+          </Route>: <App/>
+        }
+        </Switch>
+        {/* <Footer /> */}
       </div>
     </Router>
   )

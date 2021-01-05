@@ -52,6 +52,7 @@ function Subject({ filterCategory, resetFields, setPrice }) {
 			>
 				ALL
 			</Button>
+			
 				</div>
 				<div className="subject__scroll">
 			<Button

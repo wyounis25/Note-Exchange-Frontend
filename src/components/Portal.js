@@ -98,7 +98,7 @@ function Portal({ loginSession, signUpSession }) {
 			</div> */}
 			<section className="portal">
 				<div className="user__portal">
-					<h2 id="portal__sign" onClick={handleSigninl}>SIGNUP</h2>
+					<h2 id="portal__sign" onClick={handleSigninl}>START SELLING!</h2>
 					{Signup ? null: <SignIn signUpSession={signUpSession} /> }
 					<h2 id="portal__login" onClick={handleLogin}>LOGIN</h2>
 					{login ? <Login loginSession={loginSession} /> : null}

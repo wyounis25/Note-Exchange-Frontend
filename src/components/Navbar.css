@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .navbar{
     margin-top: 5px;
@@ -8,8 +9,8 @@
     width: 100%;
     justify-content: space-between;}
 .navbar h1 {
-    font-family: 'Nunito', sans-serif;
-    color: #F5F9E9;
+    font-family: 'Poppins', sans-serif;
+    color: #7c9473;
     cursor: pointer;
     /* font-size: 80px; */
     font-size: 10vh;
@@ -18,7 +19,7 @@
 .navbar__logo{
     height: 50px;
     margin-left: 20px;
-    color: #F5F9E9 !important;
+    color: #7c9473 !important;
 }
 .navbar__center{
     position: absolute;
@@ -29,22 +30,6 @@
 
 
 }
-.navbar__center h1 {
-    /* text-size-adjust: 400%;
-    display: flex;
-justify-content: center;
-margin-left: 270px;
-padding-top:20px;
-     flex: 1 ;
-    padding-left: 10px;
-    display: center; */
-    /* this fits the conent center */
-    /* max-width: fit-content;
-    padding: 10px;
-    height: 30px; */
-    /* border: 1px solid lightgray; */
-    /* border-radius: 999px;   */ 
-}
 .navbar__icon{
     /* display: flex;
     align-items: left;
@@ -53,11 +38,11 @@ padding-top:20px;
     right: 330px;
     width: 140vw;
     margin-left: 50px;
-    color: #F5F9E9 !important;
+    color: #7c9473 !important;
     font-size: 150% !important ;
     /* background-color: black; */
-
 }
+
 .navbar__cart{
     z-index: 999;
     position: absolute;
@@ -71,11 +56,11 @@ margin-left: 700px!important;
 }
 
 .navbar h4 {
-    font-family: 'Nunito', sans-serif;
-    color: #F5F9E9 ;
+    font-family: 'Poppins', sans-serif;
+    color: #7c9473 ;
 }
 .navbar__logout {
-   color: #f32144 !important;
+    color: #a20a0a!important;
     height: 50px;
     font-family: 'Nunito', sans-serif!important;
     font-weight : bold !important ;
