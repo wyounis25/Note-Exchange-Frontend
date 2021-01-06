@@ -46,7 +46,11 @@ function ShoppingCart({ userCart,closeCart }) {
 		console.log(total);
 		sum = total.reduce((a, b) => a + b, 0);
 	});
-	
+	if(sum==="undefined"){
+
+		sum = 0
+	} 
+	console.log(sum)
 	console.log(unique.length);
 	return (
 			<div className="shopping">
@@ -57,7 +61,10 @@ function ShoppingCart({ userCart,closeCart }) {
 				<br/>
 				
 				<h5>SUBTOTAL</h5> 
-				<p><strong>{`$${sum}`}</strong></p>
+				{(sum===undefined)?
+				<p><strong>{`$${0}`}</strong></p>
+			:	<p><strong>{`$${sum}`}</strong></p>
+			}
 			<Button variant="outlined" className="checkout" onClick={checkout}>CHECKOUT</Button>
 			</div>
 	)

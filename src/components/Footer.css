@@ -1,9 +1,10 @@
 .footer{
     border-top: 1px solid lightgray;
     padding: 20px;
-    background-color: #f7f7f7;
+    background-color: lightgray;
     text-align: center;
-    bottom: 100px!important;
+    position: relative;
+    top: 100vh;
 }
 .footer h2 {
     padding: 5px;

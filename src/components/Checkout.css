@@ -27,16 +27,14 @@
     padding: 10px; 
     /* border: 1px solid #7c9473; */
 }
-
 .purchase__items:hover{
     transform: scale(1.03)
 }
-
 .purchase h2 {
     background-color: #7c9473;
     color:white;
    width: 20vh;
-   margin-left: 82.5vh;
+   margin-left: 79.5vh;
     border-radius: 10px;
     transition: transform 100ms ease-in;
     text-align: center;

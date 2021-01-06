@@ -245,7 +245,9 @@ console.log(users)
   return (
     <Router>
       <div>
-       
+      <div id="home__header">
+          <Navbar userCart={users} handleLogout={handleLogout} />
+        </div>
         <Switch>
           <Route path="/profile/:id">
             <Profile notes={filterNotes} handleDelete={handleDelete} />
@@ -272,9 +274,7 @@ console.log(users)
           </Route> */}
           {user?
           <Route path="/">
-             <div id="home__header">
-          <Navbar userCart={users} handleLogout={handleLogout} />
-        </div>
+            
             <Search handleSearch={handleSearch} />
             <br />
             <SideBar createNote={createNote} />
@@ -294,8 +294,9 @@ console.log(users)
           </Route>: <App/>
         }
         </Switch>
-        {/* <Footer /> */}
+
       </div>
+      			<Footer/>
     </Router>
   )
 }

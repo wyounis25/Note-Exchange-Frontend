@@ -52,18 +52,17 @@ function Portal({ loginSession, signUpSession }) {
 				<ul className="header__ul">
 				<li>CHEMISTRY</li>
 				<li>HISTORY</li>
-				<li>ALEGEBRA</li>
+				<li>ALGEBRA</li>
 				<li>BIOLOGY</li>
 				<li>CALCULUS</li>
 				<li>ENGINEERING</li>
 				<li>ART</li>
 				<li>FINANCE</li>
-				<li>PSYCOLOGY</li>
+				<li>PSYCHOLOGY</li>
 				<li>ACCOUNTING</li>
 				<li>MANAGEMENT</li>
 				<li>CELL BIOLOGY</li>
 				<li>PHYSICS</li>
-				<li>PSYCOLOGY</li>
 				<li>ANCIENT HISTORY</li>
 				<li>PHILOSOPHY</li>
 				<li>NURSING</li>

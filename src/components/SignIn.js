@@ -38,7 +38,7 @@ function SignIn({ signUpSession }) {
 			<form onSubmit={(e) => handleSignUp(e)}>
 				<div className="input">
 					<FaceIcon/>
-					<input name="name" placeholder="whats you name?" value={profile.name} onChange={handleChange} />
+					<input name="name" placeholder="what's your name" value={profile.name} onChange={handleChange} />
 				</div>
 				<br />
 				<div className="input">

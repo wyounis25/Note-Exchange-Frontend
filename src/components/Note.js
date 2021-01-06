@@ -106,11 +106,12 @@ function Note({ updateCart, notes, allUsers, updateExperience }) {
   //console.log(star);
   console.log(hover)
   return (
-    <div className="notes">
+
+      <div className="notes">
       <div className="single__note">
         <div className="single__noteContent">
           <img src={mynote.content} />
-			<h5>Write a Review</h5>
+			      <h5>Write a Review</h5>
           <form onClick={handleSubmit}>
             <div className="experience">
               <input className="user__comment" onChange={handleChange} />
@@ -147,7 +148,7 @@ function Note({ updateCart, notes, allUsers, updateExperience }) {
         <div className="single__noteInfo">
           <h2 className="note__header">{mynote.category}</h2>
           <h5>{mynote.label}</h5>
-			<br/>
+			  <br/>
           <h4>
             <strong>{`$${mynote.price}`}</strong>
           </h4>
@@ -160,6 +161,7 @@ function Note({ updateCart, notes, allUsers, updateExperience }) {
           </div>
         </div>
       </div>
+
 
       <div className="Review">
 				<h2>REVIEWS</h2>

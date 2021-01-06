@@ -27,14 +27,17 @@ body::-webkit-scrollbar {
     height: 225vh;
     width: 50%;
     background-color: white;
+    
 }
 .main__header{
+    background-color: white;
 color: #272727;
 font-size:5vw;
 z-index: 2;
 position: fixed;
 /* display: flex; */
-top:50px;
+height: 22vh;
+top:0px;
 left:50px;
 /* justify-content: center;
 align-items: center; */
@@ -44,7 +47,7 @@ color: #7c9473;
 object-fit: contain;
 /* background-color:#515751; */
 /* box-shadow: 0 4px 2px -2px #515751; */
-/* box-shadow: 0px 0px 18px -10px rgba(0,0,0,0.75); */
+box-shadow: 0px 0px 18px -10px white;
 /* border-radius: 25px; */
 
 /* width: 50%; */
@@ -94,12 +97,9 @@ list-style-type: none;
     border-radius: 30px;
     opacity: 1;
     border: 20px solid #7c9473;
-    /* box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75); */
-    /* transition: transform 100ms ease-in; */
 }
 
 .user__portal h2 {
-/* border: 1px solid  white; */
 color: white;
 font-size: 3vh;
 display: flex;
